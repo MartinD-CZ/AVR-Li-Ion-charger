@@ -1,0 +1,2598 @@
+
+ATtiny USB charger.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000fec  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00001060  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000003b  00800060  00800060  00001060  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001060  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001090  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001b0  00000000  00000000  000010d0  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000023b3  00000000  00000000  00001280  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000bb6  00000000  00000000  00003633  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000119d  00000000  00000000  000041e9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000260  00000000  00000000  00005388  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000007de  00000000  00000000  000055e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000011a8  00000000  00000000  00005dc6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000120  00000000  00000000  00006f6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	69 c1       	rjmp	.+722    	; 0x2d4 <__ctors_end>
+   2:	81 c1       	rjmp	.+770    	; 0x306 <__bad_interrupt>
+   4:	f4 c6       	rjmp	.+3560   	; 0xdee <__vector_2>
+   6:	7f c1       	rjmp	.+766    	; 0x306 <__bad_interrupt>
+   8:	7e c1       	rjmp	.+764    	; 0x306 <__bad_interrupt>
+   a:	7d c1       	rjmp	.+762    	; 0x306 <__bad_interrupt>
+   c:	2f c6       	rjmp	.+3166   	; 0xc6c <__vector_6>
+   e:	7b c1       	rjmp	.+758    	; 0x306 <__bad_interrupt>
+  10:	7a c1       	rjmp	.+756    	; 0x306 <__bad_interrupt>
+  12:	79 c1       	rjmp	.+754    	; 0x306 <__bad_interrupt>
+  14:	78 c1       	rjmp	.+752    	; 0x306 <__bad_interrupt>
+  16:	77 c1       	rjmp	.+750    	; 0x306 <__bad_interrupt>
+  18:	76 c1       	rjmp	.+748    	; 0x306 <__bad_interrupt>
+  1a:	75 c1       	rjmp	.+746    	; 0x306 <__bad_interrupt>
+  1c:	74 c1       	rjmp	.+744    	; 0x306 <__bad_interrupt>
+  1e:	73 c1       	rjmp	.+742    	; 0x306 <__bad_interrupt>
+  20:	72 c1       	rjmp	.+740    	; 0x306 <__bad_interrupt>
+
+00000022 <__trampolines_end>:
+  22:	56 61       	ori	r21, 0x16	; 22
+  24:	6c 75       	andi	r22, 0x5C	; 92
+  26:	65 20       	and	r6, r5
+  28:	63 6c       	ori	r22, 0xC3	; 195
+  2a:	69 70       	andi	r22, 0x09	; 9
+  2c:	70 65       	ori	r23, 0x50	; 80
+  2e:	64 20       	and	r6, r4
+  30:	2d 20       	and	r2, r13
+	...
+
+00000033 <_ZZ9printDatavE3__c_3>:
+  33:	0a 74 6f 20 70 72 69 6e 74 20 74 68 65 20 74 61     .to print the ta
+  43:	62 6c 65 20 61 67 61 69 6e 2c 20 73 65 6e 64 20     ble again, send 
+  53:	44 41 54 41 3b 20 74 6f 20 73 61 76 65 20 26 20     DATA; to save & 
+  63:	65 78 69 74 2c 20 73 65 6e 64 20 45 58 49 54 0a     exit, send EXIT.
+	...
+
+00000074 <_ZZ9printDatavE3__c_2>:
+  74:	70 61 72 61 6d 4e 61 6d 65 20 20 20 75 6e 69 74     paramName   unit
+  84:	20 20 20 20 76 61 6c 75 65 20 20 20 6d 69 6e 20         value   min 
+  94:	20 20 20 20 6d 61 78 20 20 20 20 20 64 65 66 61         max     defa
+  a4:	75 6c 74 0a 00                                      ult..
+
+000000a9 <_ZZ9printDatavE3__c_1>:
+  a9:	74 6f 20 63 68 61 6e 67 65 20 70 61 72 61 6d 65     to change parame
+  b9:	74 65 72 73 2c 20 73 65 6e 64 3a 20 70 61 72 61     ters, send: para
+  c9:	6d 4e 61 6d 65 3d 56 61 6c 75 65 20 20 20 66 6f     mName=Value   fo
+  d9:	72 20 65 78 61 6d 70 6c 65 3a 20 56 6d 61 78 3d     r example: Vmax=
+  e9:	34 35 30 30 0a 64 6f 20 6e 6f 74 20 66 6f 72 67     4500.do not forg
+  f9:	65 74 20 74 6f 20 73 65 6e 64 20 74 68 65 20 4e     et to send the N
+ 109:	65 77 4c 69 6e 65 20 28 61 6b 61 20 4c 69 6e 65     ewLine (aka Line
+ 119:	46 65 65 64 29 20 63 68 61 72 61 63 74 65 72 20     Feed) character 
+ 129:	61 74 20 74 68 65 20 65 6e 64 0a 0a 00              at the end...
+
+00000136 <_ZZ9printDatavE3__c_0>:
+ 136:	72 65 76 2e 20 31 2e 30 20 20 20 20 20 20 65 6d     rev. 1.0      em
+ 146:	62 65 64 62 6c 6f 67 2e 65 75 0a 0a 00              bedblog.eu...
+
+00000153 <_ZZ9printDatavE3__c>:
+ 153:	0a 0a 0a 3d 3d 3d 20 41 56 52 20 4c 69 2d 49 6f     ...=== AVR Li-Io
+ 163:	6e 20 43 68 61 72 67 65 72 20 3d 3d 3d 0a 00        n Charger ===..
+
+00000172 <_ZZ12configPortalvE3__c_1>:
+ 172:	20 73 65 74 20 74 6f 20 00                           set to .
+
+0000017b <_ZZ12configPortalvE3__c_0>:
+ 17b:	49 6e 76 61 6c 69 64 20 63 6f 6d 6d 61 6e 64 21     Invalid command!
+ 18b:	0a 00                                               ..
+
+0000018d <_ZZ12configPortalvE3__c>:
+ 18d:	64 61 74 61 20 73 61 76 65 64 2c 20 72 65 73 74     data saved, rest
+ 19d:	61 72 74 69 6e 67 0a 00                             arting..
+
+000001a5 <_ZL4unit>:
+ 1a5:	6d 56 6d 56 6d 41 6d 41 6d 41 20 43 20 43 6d 56     mVmVmAmAmA C CmV
+	...
+
+000001b6 <_ZL9paramName>:
+ 1b6:	56 6d 61 78 56 70 72 65 49 6d 61 78 49 63 75 74     VmaxVpreImaxIcut
+ 1c6:	49 70 72 65 54 6d 69 6e 54 6d 61 78 56 63 6f 6e     IpreTminTmaxVcon
+	...
+
+000001d7 <_ZL9maxValues>:
+ 1d7:	94 11 94 11 d0 07 d0 07 d0 07 32 00 7d 00 a0 0f     ..........2.}...
+
+000001e7 <_ZL9minValues>:
+ 1e7:	f4 01 f4 01 64 00 0a 00 0a 00 00 00 00 00 64 00     ....d.........d.
+
+000001f7 <_ZL13defaultValues>:
+ 1f7:	68 10 b8 0b e8 03 64 00 c8 00 00 00 2d 00 bc 02     h.....d.....-...
+
+00000207 <_ZZ4mainE3__c_10>:
+ 207:	45 52 52 4f 52 0a 00                                ERROR..
+
+0000020e <_ZZ4mainE3__c_9>:
+ 20e:	3d 3d 46 49 4e 49 53 48 45 44 3d 3d 0a 00           ==FINISHED==..
+
+0000021c <_ZZ4mainE3__c_8>:
+ 21c:	0a 00                                               ..
+
+0000021e <_ZZ4mainE3__c_7>:
+ 21e:	20 43 0a 00                                          C..
+
+00000222 <_ZZ4mainE3__c_6>:
+ 222:	20 6d 41 3b 20 74 3a 20 00                           mA; t: .
+
+0000022b <_ZZ4mainE3__c_5>:
+ 22b:	20 6d 56 3b 20 49 6f 75 74 3a 20 00                  mV; Iout: .
+
+00000237 <_ZZ4mainE3__c_4>:
+ 237:	56 6f 75 74 3a 20 00                                Vout: .
+
+0000023e <_ZZ4mainE3__c_3>:
+ 23e:	74 6f 20 73 74 61 72 74 20 63 6f 6e 66 69 67 2c     to start config,
+ 24e:	20 73 65 6e 64 20 61 6e 79 74 68 69 6e 67 20 74      send anything t
+ 25e:	6f 20 74 68 65 20 64 65 76 69 63 65 0a 00           o the device..
+
+0000026c <_ZZ4mainE3__c_2>:
+ 26c:	77 61 69 74 69 6e 67 20 66 6f 72 20 62 61 74 74     waiting for batt
+ 27c:	65 72 79 20 63 6f 6e 6e 65 63 74 69 6f 6e 2e 2e     ery connection..
+ 28c:	2e 0a 00                                            ...
+
+0000028f <_ZZ4mainE3__c_1>:
+ 28f:	4e 6f 74 68 69 6e 67 20 69 6e 20 45 45 50 52 4f     Nothing in EEPRO
+ 29f:	4d 2c 20 64 65 66 61 75 6c 74 73 20 75 73 65 64     M, defaults used
+ 2af:	0a 00                                               ..
+
+000002b1 <_ZZ4mainE3__c_0>:
+ 2b1:	44 61 74 61 20 6c 6f 61 64 65 64 20 66 72 6f 6d     Data loaded from
+ 2c1:	20 45 45 50 52 4f 4d 0a 00                           EEPROM..
+
+000002ca <_ZZ4mainE3__c>:
+ 2ca:	0a 0a 0a 53 54 41 52 54 0a 00                       ...START..
+
+000002d4 <__ctors_end>:
+ 2d4:	11 24       	eor	r1, r1
+ 2d6:	1f be       	out	0x3f, r1	; 63
+ 2d8:	cf e5       	ldi	r28, 0x5F	; 95
+ 2da:	d1 e0       	ldi	r29, 0x01	; 1
+ 2dc:	de bf       	out	0x3e, r29	; 62
+ 2de:	cd bf       	out	0x3d, r28	; 61
+
+000002e0 <_Z8wdt_initv>:
+	}
+}
+
+void wdt_init(void)
+{
+	MCUSR = 0;
+ 2e0:	14 be       	out	0x34, r1	; 52
+				"out __SREG__,__tmp_reg__"   "\n\t"
+				: [TEMPREG] "=d" (temp_reg)
+				: [WDTREG]  "I"  (_SFR_IO_ADDR(_WD_CONTROL_REG)),
+				[WDCE_WDE]  "n"  ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE)))
+				: "r0"
+		);
+ 2e2:	0f b6       	in	r0, 0x3f	; 63
+ 2e4:	f8 94       	cli
+ 2e6:	a8 95       	wdr
+ 2e8:	81 b5       	in	r24, 0x21	; 33
+ 2ea:	88 61       	ori	r24, 0x18	; 24
+ 2ec:	81 bd       	out	0x21, r24	; 33
+ 2ee:	11 bc       	out	0x21, r1	; 33
+ 2f0:	0f be       	out	0x3f, r0	; 63
+
+000002f2 <__do_clear_bss>:
+ 2f2:	20 e0       	ldi	r18, 0x00	; 0
+ 2f4:	a0 e6       	ldi	r26, 0x60	; 96
+ 2f6:	b0 e0       	ldi	r27, 0x00	; 0
+ 2f8:	01 c0       	rjmp	.+2      	; 0x2fc <.do_clear_bss_start>
+
+000002fa <.do_clear_bss_loop>:
+ 2fa:	1d 92       	st	X+, r1
+
+000002fc <.do_clear_bss_start>:
+ 2fc:	ab 39       	cpi	r26, 0x9B	; 155
+ 2fe:	b2 07       	cpc	r27, r18
+ 300:	e1 f7       	brne	.-8      	; 0x2fa <.do_clear_bss_loop>
+ 302:	15 d3       	rcall	.+1578   	; 0x92e <main>
+ 304:	71 c6       	rjmp	.+3298   	; 0xfe8 <_exit>
+
+00000306 <__bad_interrupt>:
+ 306:	7c ce       	rjmp	.-776    	; 0x0 <__vectors>
+
+00000308 <_Z15adc_measurementhh>:
+#include "..\defines.h"
+
+//return the value of a given channel in milivolts (with a 4.096 V reference at PA0)
+uint16_t adc_measurement(uint8_t channel, uint8_t samples)
+{
+	switch (channel)
+ 308:	81 30       	cpi	r24, 0x01	; 1
+ 30a:	39 f0       	breq	.+14     	; 0x31a <_Z15adc_measurementhh+0x12>
+ 30c:	20 f0       	brcs	.+8      	; 0x316 <_Z15adc_measurementhh+0xe>
+ 30e:	82 30       	cpi	r24, 0x02	; 2
+ 310:	31 f4       	brne	.+12     	; 0x31e <_Z15adc_measurementhh+0x16>
+			break;
+		case ADC_IOUT:
+			ADMUX = (1 << REFS0) | (1 << MUX0) | (1 << MUX2) | (1 << MUX3);
+			break;
+		case ADC_TEMP:
+			ADMUX = (1 << REFS0) | (1 << MUX2);
+ 312:	84 e4       	ldi	r24, 0x44	; 68
+ 314:	03 c0       	rjmp	.+6      	; 0x31c <_Z15adc_measurementhh+0x14>
+uint16_t adc_measurement(uint8_t channel, uint8_t samples)
+{
+	switch (channel)
+	{
+		case ADC_VOUT:
+			ADMUX = (1 << REFS0) | (1 << MUX0) | (1 << MUX1);
+ 316:	83 e4       	ldi	r24, 0x43	; 67
+ 318:	01 c0       	rjmp	.+2      	; 0x31c <_Z15adc_measurementhh+0x14>
+			break;
+		case ADC_IOUT:
+			ADMUX = (1 << REFS0) | (1 << MUX0) | (1 << MUX2) | (1 << MUX3);
+ 31a:	8d e4       	ldi	r24, 0x4D	; 77
+			break;
+		case ADC_TEMP:
+			ADMUX = (1 << REFS0) | (1 << MUX2);
+ 31c:	87 b9       	out	0x07, r24	; 7
+			break;
+	}
+
+	ADCSRA = (1 << ADEN) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);
+ 31e:	87 e8       	ldi	r24, 0x87	; 135
+ 320:	86 b9       	out	0x06, r24	; 6
+
+	//start first conversion
+	ADCSRA |= (1 << ADSC);
+ 322:	36 9a       	sbi	0x06, 6	; 6
+	while (ADCSRA & (1 << ADSC));
+ 324:	36 99       	sbic	0x06, 6	; 6
+ 326:	fe cf       	rjmp	.-4      	; 0x324 <_Z15adc_measurementhh+0x1c>
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	20 e0       	ldi	r18, 0x00	; 0
+ 32c:	30 e0       	ldi	r19, 0x00	; 0
+
+	uint16_t data = 0;
+	for (uint8_t i = 0; i < samples; i ++)
+ 32e:	96 17       	cp	r25, r22
+ 330:	49 f0       	breq	.+18     	; 0x344 <_Z15adc_measurementhh+0x3c>
+	{
+		ADCSRA |= (1 << ADSC);
+ 332:	36 9a       	sbi	0x06, 6	; 6
+		while (ADCSRA & (1 << ADSC));
+ 334:	36 99       	sbic	0x06, 6	; 6
+ 336:	fe cf       	rjmp	.-4      	; 0x334 <_Z15adc_measurementhh+0x2c>
+		data += ADC;
+ 338:	44 b1       	in	r20, 0x04	; 4
+ 33a:	55 b1       	in	r21, 0x05	; 5
+ 33c:	24 0f       	add	r18, r20
+ 33e:	35 1f       	adc	r19, r21
+	//start first conversion
+	ADCSRA |= (1 << ADSC);
+	while (ADCSRA & (1 << ADSC));
+
+	uint16_t data = 0;
+	for (uint8_t i = 0; i < samples; i ++)
+ 340:	9f 5f       	subi	r25, 0xFF	; 255
+ 342:	f5 cf       	rjmp	.-22     	; 0x32e <_Z15adc_measurementhh+0x26>
+		ADCSRA |= (1 << ADSC);
+		while (ADCSRA & (1 << ADSC));
+		data += ADC;
+	}
+
+	return ((data * 4) / samples);
+ 344:	22 0f       	add	r18, r18
+ 346:	33 1f       	adc	r19, r19
+ 348:	22 0f       	add	r18, r18
+ 34a:	33 1f       	adc	r19, r19
+ 34c:	69 2f       	mov	r22, r25
+ 34e:	70 e0       	ldi	r23, 0x00	; 0
+ 350:	c9 01       	movw	r24, r18
+ 352:	9e d5       	rcall	.+2876   	; 0xe90 <__udivmodhi4>
+ 354:	cb 01       	movw	r24, r22
+ 356:	08 95       	ret
+
+00000358 <_Z10readEEPROMv>:
+const char PROGMEM unit[] = "mVmVmAmAmA C CmV";
+uint16_t actValue[8];
+
+bool readEEPROM(void)
+{
+	if (eeprom_read_byte(0) == EEPROM_FLAG)
+ 358:	80 e0       	ldi	r24, 0x00	; 0
+ 35a:	90 e0       	ldi	r25, 0x00	; 0
+ 35c:	19 d6       	rcall	.+3122   	; 0xf90 <eeprom_read_byte>
+ 35e:	81 3a       	cpi	r24, 0xA1	; 161
+ 360:	b1 f5       	brne	.+108    	; 0x3ce <_Z10readEEPROMv+0x76>
+	{
+		//we have a valid data
+		Vmax = eeprom_read_word((const uint16_t*)1);
+ 362:	81 e0       	ldi	r24, 0x01	; 1
+ 364:	90 e0       	ldi	r25, 0x00	; 0
+ 366:	1c d6       	rcall	.+3128   	; 0xfa0 <eeprom_read_word>
+ 368:	90 93 8c 00 	sts	0x008C, r25	; 0x80008c <Vmax+0x1>
+ 36c:	80 93 8b 00 	sts	0x008B, r24	; 0x80008b <Vmax>
+		Vpre = eeprom_read_word((const uint16_t*)3);
+ 370:	83 e0       	ldi	r24, 0x03	; 3
+ 372:	90 e0       	ldi	r25, 0x00	; 0
+ 374:	15 d6       	rcall	.+3114   	; 0xfa0 <eeprom_read_word>
+ 376:	90 93 8a 00 	sts	0x008A, r25	; 0x80008a <Vpre+0x1>
+ 37a:	80 93 89 00 	sts	0x0089, r24	; 0x800089 <Vpre>
+		Imax = eeprom_read_word((const uint16_t*)5);
+ 37e:	85 e0       	ldi	r24, 0x05	; 5
+ 380:	90 e0       	ldi	r25, 0x00	; 0
+ 382:	0e d6       	rcall	.+3100   	; 0xfa0 <eeprom_read_word>
+ 384:	90 93 88 00 	sts	0x0088, r25	; 0x800088 <Imax+0x1>
+ 388:	80 93 87 00 	sts	0x0087, r24	; 0x800087 <Imax>
+		Icut = eeprom_read_word((const uint16_t*)7);
+ 38c:	87 e0       	ldi	r24, 0x07	; 7
+ 38e:	90 e0       	ldi	r25, 0x00	; 0
+ 390:	07 d6       	rcall	.+3086   	; 0xfa0 <eeprom_read_word>
+ 392:	90 93 86 00 	sts	0x0086, r25	; 0x800086 <Icut+0x1>
+ 396:	80 93 85 00 	sts	0x0085, r24	; 0x800085 <Icut>
+		Ipre = eeprom_read_word((const uint16_t*)9);
+ 39a:	89 e0       	ldi	r24, 0x09	; 9
+ 39c:	90 e0       	ldi	r25, 0x00	; 0
+ 39e:	00 d6       	rcall	.+3072   	; 0xfa0 <eeprom_read_word>
+ 3a0:	90 93 84 00 	sts	0x0084, r25	; 0x800084 <Ipre+0x1>
+ 3a4:	80 93 83 00 	sts	0x0083, r24	; 0x800083 <Ipre>
+		Tmin = eeprom_read_byte((const uint8_t*)10);
+ 3a8:	8a e0       	ldi	r24, 0x0A	; 10
+ 3aa:	90 e0       	ldi	r25, 0x00	; 0
+ 3ac:	f1 d5       	rcall	.+3042   	; 0xf90 <eeprom_read_byte>
+ 3ae:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <Tmin>
+		Tmax = eeprom_read_byte((const uint8_t*)11);
+ 3b2:	8b e0       	ldi	r24, 0x0B	; 11
+ 3b4:	90 e0       	ldi	r25, 0x00	; 0
+ 3b6:	ec d5       	rcall	.+3032   	; 0xf90 <eeprom_read_byte>
+ 3b8:	80 93 7f 00 	sts	0x007F, r24	; 0x80007f <Tmax>
+		Vcon = eeprom_read_word((const uint16_t*)12);
+ 3bc:	8c e0       	ldi	r24, 0x0C	; 12
+ 3be:	90 e0       	ldi	r25, 0x00	; 0
+ 3c0:	ef d5       	rcall	.+3038   	; 0xfa0 <eeprom_read_word>
+ 3c2:	90 93 82 00 	sts	0x0082, r25	; 0x800082 <Vcon+0x1>
+ 3c6:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <Vcon>
+
+		return true;
+ 3ca:	81 e0       	ldi	r24, 0x01	; 1
+ 3cc:	08 95       	ret
+	}
+	else
+	{
+		Vmax = pgm_read_word(&defaultValues[0]);
+ 3ce:	e7 ef       	ldi	r30, 0xF7	; 247
+ 3d0:	f1 e0       	ldi	r31, 0x01	; 1
+ 3d2:	85 91       	lpm	r24, Z+
+ 3d4:	94 91       	lpm	r25, Z
+ 3d6:	90 93 8c 00 	sts	0x008C, r25	; 0x80008c <Vmax+0x1>
+ 3da:	80 93 8b 00 	sts	0x008B, r24	; 0x80008b <Vmax>
+		Vpre = pgm_read_word(&defaultValues[1]);
+ 3de:	e9 ef       	ldi	r30, 0xF9	; 249
+ 3e0:	f1 e0       	ldi	r31, 0x01	; 1
+ 3e2:	85 91       	lpm	r24, Z+
+ 3e4:	94 91       	lpm	r25, Z
+ 3e6:	90 93 8a 00 	sts	0x008A, r25	; 0x80008a <Vpre+0x1>
+ 3ea:	80 93 89 00 	sts	0x0089, r24	; 0x800089 <Vpre>
+		Imax = pgm_read_word(&defaultValues[2]);
+ 3ee:	eb ef       	ldi	r30, 0xFB	; 251
+ 3f0:	f1 e0       	ldi	r31, 0x01	; 1
+ 3f2:	85 91       	lpm	r24, Z+
+ 3f4:	94 91       	lpm	r25, Z
+ 3f6:	90 93 88 00 	sts	0x0088, r25	; 0x800088 <Imax+0x1>
+ 3fa:	80 93 87 00 	sts	0x0087, r24	; 0x800087 <Imax>
+		Icut = pgm_read_word(&defaultValues[3]);
+ 3fe:	ed ef       	ldi	r30, 0xFD	; 253
+ 400:	f1 e0       	ldi	r31, 0x01	; 1
+ 402:	85 91       	lpm	r24, Z+
+ 404:	94 91       	lpm	r25, Z
+ 406:	90 93 86 00 	sts	0x0086, r25	; 0x800086 <Icut+0x1>
+ 40a:	80 93 85 00 	sts	0x0085, r24	; 0x800085 <Icut>
+		Ipre = pgm_read_word(&defaultValues[4]);
+ 40e:	ef ef       	ldi	r30, 0xFF	; 255
+ 410:	f1 e0       	ldi	r31, 0x01	; 1
+ 412:	85 91       	lpm	r24, Z+
+ 414:	94 91       	lpm	r25, Z
+ 416:	90 93 84 00 	sts	0x0084, r25	; 0x800084 <Ipre+0x1>
+ 41a:	80 93 83 00 	sts	0x0083, r24	; 0x800083 <Ipre>
+		Tmin = pgm_read_word(&defaultValues[5]);
+ 41e:	e1 e0       	ldi	r30, 0x01	; 1
+ 420:	f2 e0       	ldi	r31, 0x02	; 2
+ 422:	85 91       	lpm	r24, Z+
+ 424:	94 91       	lpm	r25, Z
+ 426:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <Tmin>
+		Tmax = pgm_read_word(&defaultValues[6]);
+ 42a:	e3 e0       	ldi	r30, 0x03	; 3
+ 42c:	f2 e0       	ldi	r31, 0x02	; 2
+ 42e:	85 91       	lpm	r24, Z+
+ 430:	94 91       	lpm	r25, Z
+ 432:	80 93 7f 00 	sts	0x007F, r24	; 0x80007f <Tmax>
+		Vcon = pgm_read_word(&defaultValues[7]);
+ 436:	e5 e0       	ldi	r30, 0x05	; 5
+ 438:	f2 e0       	ldi	r31, 0x02	; 2
+ 43a:	85 91       	lpm	r24, Z+
+ 43c:	94 91       	lpm	r25, Z
+ 43e:	90 93 82 00 	sts	0x0082, r25	; 0x800082 <Vcon+0x1>
+ 442:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <Vcon>
+
+		return false;
+ 446:	80 e0       	ldi	r24, 0x00	; 0
+	}
+}
+ 448:	08 95       	ret
+
+0000044a <_Z15getActualValuesv>:
+	uart_sendString_P(PSTR("\nto print the table again, send DATA; to save & exit, send EXIT\n"));
+}
+
+void getActualValues()
+{
+	actValue[0] = Vmax;
+ 44a:	e0 e6       	ldi	r30, 0x60	; 96
+ 44c:	f0 e0       	ldi	r31, 0x00	; 0
+ 44e:	80 91 8b 00 	lds	r24, 0x008B	; 0x80008b <Vmax>
+ 452:	90 91 8c 00 	lds	r25, 0x008C	; 0x80008c <Vmax+0x1>
+ 456:	91 83       	std	Z+1, r25	; 0x01
+ 458:	80 83       	st	Z, r24
+	actValue[1] = Vpre;
+ 45a:	80 91 89 00 	lds	r24, 0x0089	; 0x800089 <Vpre>
+ 45e:	90 91 8a 00 	lds	r25, 0x008A	; 0x80008a <Vpre+0x1>
+ 462:	93 83       	std	Z+3, r25	; 0x03
+ 464:	82 83       	std	Z+2, r24	; 0x02
+	actValue[2] = Imax;
+ 466:	80 91 87 00 	lds	r24, 0x0087	; 0x800087 <Imax>
+ 46a:	90 91 88 00 	lds	r25, 0x0088	; 0x800088 <Imax+0x1>
+ 46e:	95 83       	std	Z+5, r25	; 0x05
+ 470:	84 83       	std	Z+4, r24	; 0x04
+	actValue[3] = Icut;
+ 472:	80 91 85 00 	lds	r24, 0x0085	; 0x800085 <Icut>
+ 476:	90 91 86 00 	lds	r25, 0x0086	; 0x800086 <Icut+0x1>
+ 47a:	97 83       	std	Z+7, r25	; 0x07
+ 47c:	86 83       	std	Z+6, r24	; 0x06
+	actValue[4] = Ipre;
+ 47e:	80 91 83 00 	lds	r24, 0x0083	; 0x800083 <Ipre>
+ 482:	90 91 84 00 	lds	r25, 0x0084	; 0x800084 <Ipre+0x1>
+ 486:	91 87       	std	Z+9, r25	; 0x09
+ 488:	80 87       	std	Z+8, r24	; 0x08
+	actValue[5] = Tmin;
+ 48a:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <Tmin>
+ 48e:	08 2e       	mov	r0, r24
+ 490:	00 0c       	add	r0, r0
+ 492:	99 0b       	sbc	r25, r25
+ 494:	93 87       	std	Z+11, r25	; 0x0b
+ 496:	82 87       	std	Z+10, r24	; 0x0a
+	actValue[6] = Tmax;
+ 498:	80 91 7f 00 	lds	r24, 0x007F	; 0x80007f <Tmax>
+ 49c:	08 2e       	mov	r0, r24
+ 49e:	00 0c       	add	r0, r0
+ 4a0:	99 0b       	sbc	r25, r25
+ 4a2:	95 87       	std	Z+13, r25	; 0x0d
+ 4a4:	84 87       	std	Z+12, r24	; 0x0c
+	actValue[7] = Vcon;
+ 4a6:	80 91 81 00 	lds	r24, 0x0081	; 0x800081 <Vcon>
+ 4aa:	90 91 82 00 	lds	r25, 0x0082	; 0x800082 <Vcon+0x1>
+ 4ae:	97 87       	std	Z+15, r25	; 0x0f
+ 4b0:	86 87       	std	Z+14, r24	; 0x0e
+ 4b2:	08 95       	ret
+
+000004b4 <_Z9printDatav>:
+		}
+	}
+}
+
+void printData(void)
+{
+ 4b4:	cf 92       	push	r12
+ 4b6:	df 92       	push	r13
+ 4b8:	ef 92       	push	r14
+ 4ba:	ff 92       	push	r15
+ 4bc:	0f 93       	push	r16
+ 4be:	1f 93       	push	r17
+ 4c0:	cf 93       	push	r28
+ 4c2:	df 93       	push	r29
+	dataReady = false;
+ 4c4:	10 92 8d 00 	sts	0x008D, r1	; 0x80008d <dataReady>
+	uart_sendString_P(PSTR("\n\n\n=== AVR Li-Ion Charger ===\n"));
+ 4c8:	83 e5       	ldi	r24, 0x53	; 83
+ 4ca:	91 e0       	ldi	r25, 0x01	; 1
+ 4cc:	3e d4       	rcall	.+2172   	; 0xd4a <_Z17uart_sendString_PPKc>
+	uart_sendString_P(PSTR("rev. 1.0      embedblog.eu\n\n"));
+ 4ce:	86 e3       	ldi	r24, 0x36	; 54
+ 4d0:	91 e0       	ldi	r25, 0x01	; 1
+ 4d2:	3b d4       	rcall	.+2166   	; 0xd4a <_Z17uart_sendString_PPKc>
+	uart_sendString_P(PSTR("to change parameters, send: paramName=Value   for example: Vmax=4500\ndo not forget to send the NewLine (aka LineFeed) character at the end\n\n"));
+ 4d4:	89 ea       	ldi	r24, 0xA9	; 169
+ 4d6:	90 e0       	ldi	r25, 0x00	; 0
+ 4d8:	38 d4       	rcall	.+2160   	; 0xd4a <_Z17uart_sendString_PPKc>
+	uart_sendString_P(PSTR("paramName   unit    value   min     max     default\n"));
+ 4da:	84 e7       	ldi	r24, 0x74	; 116
+ 4dc:	90 e0       	ldi	r25, 0x00	; 0
+ 4de:	35 d4       	rcall	.+2154   	; 0xd4a <_Z17uart_sendString_PPKc>
+	//characters:			12			6	    8	    8       8
+
+	getActualValues();
+ 4e0:	b4 df       	rcall	.-152    	; 0x44a <_Z15getActualValuesv>
+ 4e2:	90 e6       	ldi	r25, 0x60	; 96
+ 4e4:	e9 2e       	mov	r14, r25
+ 4e6:	90 e0       	ldi	r25, 0x00	; 0
+ 4e8:	f9 2e       	mov	r15, r25
+ 4ea:	c0 e0       	ldi	r28, 0x00	; 0
+ 4ec:	d0 e0       	ldi	r29, 0x00	; 0
+ 4ee:	6e 01       	movw	r12, r28
+ 4f0:	cc 0c       	add	r12, r12
+ 4f2:	dd 1c       	adc	r13, r13
+ 4f4:	00 e0       	ldi	r16, 0x00	; 0
+ 4f6:	10 e0       	ldi	r17, 0x00	; 0
+	uint8_t numLength;
+	for (uint8_t i = 0; i < 8; i ++)
+	{
+		for (uint8_t j = 0; j < 4; j++)
+			uart_sendChar(pgm_read_byte(&paramName[i * 4 + j]));
+ 4f8:	f6 01       	movw	r30, r12
+ 4fa:	e0 0f       	add	r30, r16
+ 4fc:	f1 1f       	adc	r31, r17
+ 4fe:	ea 54       	subi	r30, 0x4A	; 74
+ 500:	fe 4f       	sbci	r31, 0xFE	; 254
+ 502:	84 91       	lpm	r24, Z
+ 504:	eb d3       	rcall	.+2006   	; 0xcdc <_Z13uart_sendCharc>
+ 506:	0f 5f       	subi	r16, 0xFF	; 255
+ 508:	1f 4f       	sbci	r17, 0xFF	; 255
+
+	getActualValues();
+	uint8_t numLength;
+	for (uint8_t i = 0; i < 8; i ++)
+	{
+		for (uint8_t j = 0; j < 4; j++)
+ 50a:	04 30       	cpi	r16, 0x04	; 4
+ 50c:	11 05       	cpc	r17, r1
+ 50e:	a1 f7       	brne	.-24     	; 0x4f8 <_Z9printDatav+0x44>
+			uart_sendChar(pgm_read_byte(&paramName[i * 4 + j]));
+		uart_sendCharRepeat(' ', 8);
+ 510:	68 e0       	ldi	r22, 0x08	; 8
+ 512:	80 e2       	ldi	r24, 0x20	; 32
+ 514:	5c d4       	rcall	.+2232   	; 0xdce <_Z19uart_sendCharRepeatch>
+
+		uart_sendChar(pgm_read_byte(&unit[i * 2]));
+ 516:	fe 01       	movw	r30, r28
+ 518:	eb 55       	subi	r30, 0x5B	; 91
+ 51a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 51c:	84 91       	lpm	r24, Z
+ 51e:	de d3       	rcall	.+1980   	; 0xcdc <_Z13uart_sendCharc>
+		uart_sendChar(pgm_read_byte(&unit[i * 2 + 1]));
+ 520:	fe 01       	movw	r30, r28
+ 522:	ea 55       	subi	r30, 0x5A	; 90
+ 524:	fe 4f       	sbci	r31, 0xFE	; 254
+ 526:	84 91       	lpm	r24, Z
+ 528:	d9 d3       	rcall	.+1970   	; 0xcdc <_Z13uart_sendCharc>
+		uart_sendCharRepeat(' ', 6);
+ 52a:	66 e0       	ldi	r22, 0x06	; 6
+ 52c:	80 e2       	ldi	r24, 0x20	; 32
+ 52e:	4f d4       	rcall	.+2206   	; 0xdce <_Z19uart_sendCharRepeatch>
+
+		numLength = uart_sendNumber(actValue[i]);
+ 530:	6a e0       	ldi	r22, 0x0A	; 10
+ 532:	f7 01       	movw	r30, r14
+ 534:	81 91       	ld	r24, Z+
+ 536:	91 91       	ld	r25, Z+
+ 538:	7f 01       	movw	r14, r30
+ 53a:	15 d4       	rcall	.+2090   	; 0xd66 <_Z15uart_sendNumberjh>
+		uart_sendCharRepeat(' ', 8 - numLength);
+ 53c:	18 e0       	ldi	r17, 0x08	; 8
+ 53e:	61 2f       	mov	r22, r17
+ 540:	68 1b       	sub	r22, r24
+ 542:	80 e2       	ldi	r24, 0x20	; 32
+ 544:	44 d4       	rcall	.+2184   	; 0xdce <_Z19uart_sendCharRepeatch>
+
+		numLength = uart_sendNumber(pgm_read_word(&minValues[i]));
+ 546:	fe 01       	movw	r30, r28
+ 548:	e9 51       	subi	r30, 0x19	; 25
+ 54a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 54c:	85 91       	lpm	r24, Z+
+ 54e:	94 91       	lpm	r25, Z
+ 550:	6a e0       	ldi	r22, 0x0A	; 10
+ 552:	09 d4       	rcall	.+2066   	; 0xd66 <_Z15uart_sendNumberjh>
+		uart_sendCharRepeat(' ', 8 - numLength);
+ 554:	61 2f       	mov	r22, r17
+ 556:	68 1b       	sub	r22, r24
+ 558:	80 e2       	ldi	r24, 0x20	; 32
+ 55a:	39 d4       	rcall	.+2162   	; 0xdce <_Z19uart_sendCharRepeatch>
+
+		numLength = uart_sendNumber(pgm_read_word(&maxValues[i]));
+ 55c:	fe 01       	movw	r30, r28
+ 55e:	e9 52       	subi	r30, 0x29	; 41
+ 560:	fe 4f       	sbci	r31, 0xFE	; 254
+ 562:	85 91       	lpm	r24, Z+
+ 564:	94 91       	lpm	r25, Z
+ 566:	6a e0       	ldi	r22, 0x0A	; 10
+ 568:	fe d3       	rcall	.+2044   	; 0xd66 <_Z15uart_sendNumberjh>
+		uart_sendCharRepeat(' ', 8 - numLength);
+ 56a:	61 2f       	mov	r22, r17
+ 56c:	68 1b       	sub	r22, r24
+ 56e:	80 e2       	ldi	r24, 0x20	; 32
+ 570:	2e d4       	rcall	.+2140   	; 0xdce <_Z19uart_sendCharRepeatch>
+
+		uart_sendNumber(pgm_read_word(&defaultValues[i]));
+ 572:	fe 01       	movw	r30, r28
+ 574:	e9 50       	subi	r30, 0x09	; 9
+ 576:	fe 4f       	sbci	r31, 0xFE	; 254
+ 578:	85 91       	lpm	r24, Z+
+ 57a:	94 91       	lpm	r25, Z
+ 57c:	6a e0       	ldi	r22, 0x0A	; 10
+ 57e:	f3 d3       	rcall	.+2022   	; 0xd66 <_Z15uart_sendNumberjh>
+		uart_sendChar('\n');
+ 580:	8a e0       	ldi	r24, 0x0A	; 10
+ 582:	ac d3       	rcall	.+1880   	; 0xcdc <_Z13uart_sendCharc>
+ 584:	22 96       	adiw	r28, 0x02	; 2
+	uart_sendString_P(PSTR("paramName   unit    value   min     max     default\n"));
+	//characters:			12			6	    8	    8       8
+
+	getActualValues();
+	uint8_t numLength;
+	for (uint8_t i = 0; i < 8; i ++)
+ 586:	c0 31       	cpi	r28, 0x10	; 16
+ 588:	d1 05       	cpc	r29, r1
+ 58a:	09 f0       	breq	.+2      	; 0x58e <_Z9printDatav+0xda>
+ 58c:	b0 cf       	rjmp	.-160    	; 0x4ee <_Z9printDatav+0x3a>
+
+		uart_sendNumber(pgm_read_word(&defaultValues[i]));
+		uart_sendChar('\n');
+	}
+
+	uart_sendString_P(PSTR("\nto print the table again, send DATA; to save & exit, send EXIT\n"));
+ 58e:	83 e3       	ldi	r24, 0x33	; 51
+ 590:	90 e0       	ldi	r25, 0x00	; 0
+}
+ 592:	df 91       	pop	r29
+ 594:	cf 91       	pop	r28
+ 596:	1f 91       	pop	r17
+ 598:	0f 91       	pop	r16
+ 59a:	ff 90       	pop	r15
+ 59c:	ef 90       	pop	r14
+ 59e:	df 90       	pop	r13
+ 5a0:	cf 90       	pop	r12
+
+		uart_sendNumber(pgm_read_word(&defaultValues[i]));
+		uart_sendChar('\n');
+	}
+
+	uart_sendString_P(PSTR("\nto print the table again, send DATA; to save & exit, send EXIT\n"));
+ 5a2:	d3 c3       	rjmp	.+1958   	; 0xd4a <_Z17uart_sendString_PPKc>
+
+000005a4 <_Z10convertIntv>:
+	actValue[6] = Tmax;
+	actValue[7] = Vcon;
+}
+
+uint16_t convertInt()
+{
+ 5a4:	cf 93       	push	r28
+ 5a6:	df 93       	push	r29
+ 5a8:	00 d0       	rcall	.+0      	; 0x5aa <_Z10convertIntv+0x6>
+ 5aa:	00 d0       	rcall	.+0      	; 0x5ac <_Z10convertIntv+0x8>
+ 5ac:	cd b7       	in	r28, 0x3d	; 61
+ 5ae:	de b7       	in	r29, 0x3e	; 62
+	char number[4];
+
+	for (uint8_t i = 0; i < 4; i ++)
+		number[i] = inputBuffer[5 + i];
+ 5b0:	ef e8       	ldi	r30, 0x8F	; 143
+ 5b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 5b4:	85 81       	ldd	r24, Z+5	; 0x05
+ 5b6:	89 83       	std	Y+1, r24	; 0x01
+ 5b8:	86 81       	ldd	r24, Z+6	; 0x06
+ 5ba:	8a 83       	std	Y+2, r24	; 0x02
+ 5bc:	87 81       	ldd	r24, Z+7	; 0x07
+ 5be:	8b 83       	std	Y+3, r24	; 0x03
+ 5c0:	80 85       	ldd	r24, Z+8	; 0x08
+ 5c2:	8c 83       	std	Y+4, r24	; 0x04
+
+	uint16_t result = atoi(number);
+ 5c4:	ce 01       	movw	r24, r28
+ 5c6:	01 96       	adiw	r24, 0x01	; 1
+ 5c8:	77 d4       	rcall	.+2286   	; 0xeb8 <atoi>
+	return result;
+}
+ 5ca:	0f 90       	pop	r0
+ 5cc:	0f 90       	pop	r0
+ 5ce:	0f 90       	pop	r0
+ 5d0:	0f 90       	pop	r0
+ 5d2:	df 91       	pop	r29
+ 5d4:	cf 91       	pop	r28
+ 5d6:	08 95       	ret
+
+000005d8 <_Z10saveEEPROMv>:
+
+void saveEEPROM()
+{
+	eeprom_write_byte((uint8_t*)0, EEPROM_FLAG);
+ 5d8:	61 ea       	ldi	r22, 0xA1	; 161
+ 5da:	80 e0       	ldi	r24, 0x00	; 0
+ 5dc:	90 e0       	ldi	r25, 0x00	; 0
+ 5de:	e4 d4       	rcall	.+2504   	; 0xfa8 <eeprom_write_byte>
+	eeprom_busy_wait();
+ 5e0:	e1 99       	sbic	0x1c, 1	; 28
+ 5e2:	fe cf       	rjmp	.-4      	; 0x5e0 <_Z10saveEEPROMv+0x8>
+	eeprom_write_word((uint16_t*)1, Vmax);
+ 5e4:	60 91 8b 00 	lds	r22, 0x008B	; 0x80008b <Vmax>
+ 5e8:	70 91 8c 00 	lds	r23, 0x008C	; 0x80008c <Vmax+0x1>
+ 5ec:	81 e0       	ldi	r24, 0x01	; 1
+ 5ee:	90 e0       	ldi	r25, 0x00	; 0
+ 5f0:	e9 d4       	rcall	.+2514   	; 0xfc4 <eeprom_write_word>
+	eeprom_busy_wait();
+ 5f2:	e1 99       	sbic	0x1c, 1	; 28
+ 5f4:	fe cf       	rjmp	.-4      	; 0x5f2 <_Z10saveEEPROMv+0x1a>
+	eeprom_write_word((uint16_t*)3, Vpre);
+ 5f6:	60 91 89 00 	lds	r22, 0x0089	; 0x800089 <Vpre>
+ 5fa:	70 91 8a 00 	lds	r23, 0x008A	; 0x80008a <Vpre+0x1>
+ 5fe:	83 e0       	ldi	r24, 0x03	; 3
+ 600:	90 e0       	ldi	r25, 0x00	; 0
+ 602:	e0 d4       	rcall	.+2496   	; 0xfc4 <eeprom_write_word>
+	eeprom_busy_wait();
+ 604:	e1 99       	sbic	0x1c, 1	; 28
+ 606:	fe cf       	rjmp	.-4      	; 0x604 <_Z10saveEEPROMv+0x2c>
+	eeprom_write_word((uint16_t*)5, Imax);
+ 608:	60 91 87 00 	lds	r22, 0x0087	; 0x800087 <Imax>
+ 60c:	70 91 88 00 	lds	r23, 0x0088	; 0x800088 <Imax+0x1>
+ 610:	85 e0       	ldi	r24, 0x05	; 5
+ 612:	90 e0       	ldi	r25, 0x00	; 0
+ 614:	d7 d4       	rcall	.+2478   	; 0xfc4 <eeprom_write_word>
+	eeprom_busy_wait();
+ 616:	e1 99       	sbic	0x1c, 1	; 28
+ 618:	fe cf       	rjmp	.-4      	; 0x616 <_Z10saveEEPROMv+0x3e>
+	eeprom_write_word((uint16_t*)7, Icut);
+ 61a:	60 91 85 00 	lds	r22, 0x0085	; 0x800085 <Icut>
+ 61e:	70 91 86 00 	lds	r23, 0x0086	; 0x800086 <Icut+0x1>
+ 622:	87 e0       	ldi	r24, 0x07	; 7
+ 624:	90 e0       	ldi	r25, 0x00	; 0
+ 626:	ce d4       	rcall	.+2460   	; 0xfc4 <eeprom_write_word>
+	eeprom_busy_wait();
+ 628:	e1 99       	sbic	0x1c, 1	; 28
+ 62a:	fe cf       	rjmp	.-4      	; 0x628 <_Z10saveEEPROMv+0x50>
+	eeprom_write_word((uint16_t*)9, Ipre);
+ 62c:	60 91 83 00 	lds	r22, 0x0083	; 0x800083 <Ipre>
+ 630:	70 91 84 00 	lds	r23, 0x0084	; 0x800084 <Ipre+0x1>
+ 634:	89 e0       	ldi	r24, 0x09	; 9
+ 636:	90 e0       	ldi	r25, 0x00	; 0
+ 638:	c5 d4       	rcall	.+2442   	; 0xfc4 <eeprom_write_word>
+	eeprom_busy_wait();
+ 63a:	e1 99       	sbic	0x1c, 1	; 28
+ 63c:	fe cf       	rjmp	.-4      	; 0x63a <_Z10saveEEPROMv+0x62>
+	eeprom_write_byte((uint8_t*)10, Tmin);
+ 63e:	60 91 80 00 	lds	r22, 0x0080	; 0x800080 <Tmin>
+ 642:	8a e0       	ldi	r24, 0x0A	; 10
+ 644:	90 e0       	ldi	r25, 0x00	; 0
+ 646:	b0 d4       	rcall	.+2400   	; 0xfa8 <eeprom_write_byte>
+	eeprom_busy_wait();
+ 648:	e1 99       	sbic	0x1c, 1	; 28
+ 64a:	fe cf       	rjmp	.-4      	; 0x648 <_Z10saveEEPROMv+0x70>
+	eeprom_write_byte((uint8_t*)11, Tmax);
+ 64c:	60 91 7f 00 	lds	r22, 0x007F	; 0x80007f <Tmax>
+ 650:	8b e0       	ldi	r24, 0x0B	; 11
+ 652:	90 e0       	ldi	r25, 0x00	; 0
+ 654:	a9 d4       	rcall	.+2386   	; 0xfa8 <eeprom_write_byte>
+	eeprom_busy_wait();
+ 656:	e1 99       	sbic	0x1c, 1	; 28
+ 658:	fe cf       	rjmp	.-4      	; 0x656 <_Z10saveEEPROMv+0x7e>
+	eeprom_write_word((uint16_t*)12, Vcon);
+ 65a:	60 91 81 00 	lds	r22, 0x0081	; 0x800081 <Vcon>
+ 65e:	70 91 82 00 	lds	r23, 0x0082	; 0x800082 <Vcon+0x1>
+ 662:	8c e0       	ldi	r24, 0x0C	; 12
+ 664:	90 e0       	ldi	r25, 0x00	; 0
+ 666:	ae d4       	rcall	.+2396   	; 0xfc4 <eeprom_write_word>
+	eeprom_busy_wait();
+ 668:	e1 99       	sbic	0x1c, 1	; 28
+ 66a:	fe cf       	rjmp	.-4      	; 0x668 <_Z10saveEEPROMv+0x90>
+}
+ 66c:	08 95       	ret
+
+0000066e <_Z11checkMinMaxPjh>:
+
+void checkMinMax(uint16_t* value, uint8_t arrayIndex)
+{
+ 66e:	dc 01       	movw	r26, r24
+	uint16_t max = pgm_read_word(&maxValues[arrayIndex]);
+ 670:	70 e0       	ldi	r23, 0x00	; 0
+ 672:	66 0f       	add	r22, r22
+ 674:	77 1f       	adc	r23, r23
+ 676:	fb 01       	movw	r30, r22
+ 678:	e9 52       	subi	r30, 0x29	; 41
+ 67a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 67c:	45 91       	lpm	r20, Z+
+ 67e:	54 91       	lpm	r21, Z
+	uint16_t min = pgm_read_word(&minValues[arrayIndex]);
+ 680:	fb 01       	movw	r30, r22
+ 682:	e9 51       	subi	r30, 0x19	; 25
+ 684:	fe 4f       	sbci	r31, 0xFE	; 254
+ 686:	85 91       	lpm	r24, Z+
+ 688:	94 91       	lpm	r25, Z
+	
+	if (*value > max)
+ 68a:	2d 91       	ld	r18, X+
+ 68c:	3c 91       	ld	r19, X
+ 68e:	11 97       	sbiw	r26, 0x01	; 1
+ 690:	42 17       	cp	r20, r18
+ 692:	53 07       	cpc	r21, r19
+ 694:	18 f4       	brcc	.+6      	; 0x69c <_Z11checkMinMaxPjh+0x2e>
+		*value = max;
+ 696:	4d 93       	st	X+, r20
+ 698:	5c 93       	st	X, r21
+ 69a:	05 c0       	rjmp	.+10     	; 0x6a6 <_Z11checkMinMaxPjh+0x38>
+	else if (*value < min)
+ 69c:	28 17       	cp	r18, r24
+ 69e:	39 07       	cpc	r19, r25
+ 6a0:	28 f4       	brcc	.+10     	; 0x6ac <_Z11checkMinMaxPjh+0x3e>
+		*value = min;
+ 6a2:	8d 93       	st	X+, r24
+ 6a4:	9c 93       	st	X, r25
+	else
+		return;
+
+	uart_sendString_P(PSTR("Value clipped - "));
+ 6a6:	82 e2       	ldi	r24, 0x22	; 34
+ 6a8:	90 e0       	ldi	r25, 0x00	; 0
+ 6aa:	4f c3       	rjmp	.+1694   	; 0xd4a <_Z17uart_sendString_PPKc>
+ 6ac:	08 95       	ret
+
+000006ae <_Z12configPortalv>:
+	}
+}
+
+void configPortal(void)
+{
+	printData();
+ 6ae:	02 df       	rcall	.-508    	; 0x4b4 <_Z9printDatav>
+				uart_sendString_P(PSTR(" set to "));
+
+				getActualValues();
+				uart_sendNumber(actValue[index]);
+
+				uart_sendChar(' ');
+ 6b0:	60 e2       	ldi	r22, 0x20	; 32
+ 6b2:	b6 2e       	mov	r11, r22
+{
+	printData();
+
+	while (1)
+	{
+		if (dataReady)
+ 6b4:	80 91 8d 00 	lds	r24, 0x008D	; 0x80008d <dataReady>
+ 6b8:	88 23       	and	r24, r24
+ 6ba:	e1 f3       	breq	.-8      	; 0x6b4 <_Z12configPortalv+0x6>
+		{
+			dataReady = false;
+ 6bc:	10 92 8d 00 	sts	0x008D, r1	; 0x80008d <dataReady>
+ 6c0:	00 e0       	ldi	r16, 0x00	; 0
+ 6c2:	10 e0       	ldi	r17, 0x00	; 0
+
+			for (uint8_t i = 0; i < 4; i++)
+				inputBuffer[i] = tolower(inputBuffer[i]);
+ 6c4:	e8 01       	movw	r28, r16
+ 6c6:	c1 57       	subi	r28, 0x71	; 113
+ 6c8:	df 4f       	sbci	r29, 0xFF	; 255
+ 6ca:	88 81       	ld	r24, Y
+ 6cc:	90 e0       	ldi	r25, 0x00	; 0
+ 6ce:	11 d4       	rcall	.+2082   	; 0xef2 <tolower>
+ 6d0:	88 83       	st	Y, r24
+ 6d2:	0f 5f       	subi	r16, 0xFF	; 255
+ 6d4:	1f 4f       	sbci	r17, 0xFF	; 255
+	{
+		if (dataReady)
+		{
+			dataReady = false;
+
+			for (uint8_t i = 0; i < 4; i++)
+ 6d6:	04 30       	cpi	r16, 0x04	; 4
+ 6d8:	11 05       	cpc	r17, r1
+ 6da:	a1 f7       	brne	.-24     	; 0x6c4 <_Z12configPortalv+0x16>
+				inputBuffer[i] = tolower(inputBuffer[i]);
+
+			uint32_t receivedCode = ((uint32_t)inputBuffer[0] << 24) | ((uint32_t)inputBuffer[1] << 16) | ((uint32_t)inputBuffer[2] << 8)| ((uint32_t)inputBuffer[3] << 0);
+ 6dc:	40 91 8f 00 	lds	r20, 0x008F	; 0x80008f <inputBuffer>
+ 6e0:	80 91 90 00 	lds	r24, 0x0090	; 0x800090 <inputBuffer+0x1>
+ 6e4:	20 91 91 00 	lds	r18, 0x0091	; 0x800091 <inputBuffer+0x2>
+ 6e8:	30 91 92 00 	lds	r19, 0x0092	; 0x800092 <inputBuffer+0x3>
+
+			int8_t index = -1;
+			switch (receivedCode)
+ 6ec:	90 e0       	ldi	r25, 0x00	; 0
+ 6ee:	a0 e0       	ldi	r26, 0x00	; 0
+ 6f0:	b0 e0       	ldi	r27, 0x00	; 0
+ 6f2:	dc 01       	movw	r26, r24
+ 6f4:	99 27       	eor	r25, r25
+ 6f6:	88 27       	eor	r24, r24
+ 6f8:	b4 2b       	or	r27, r20
+ 6fa:	83 2b       	or	r24, r19
+ 6fc:	92 2b       	or	r25, r18
+ 6fe:	85 36       	cpi	r24, 0x65	; 101
+ 700:	22 e7       	ldi	r18, 0x72	; 114
+ 702:	92 07       	cpc	r25, r18
+ 704:	20 e7       	ldi	r18, 0x70	; 112
+ 706:	a2 07       	cpc	r26, r18
+ 708:	29 e6       	ldi	r18, 0x69	; 105
+ 70a:	b2 07       	cpc	r27, r18
+ 70c:	09 f4       	brne	.+2      	; 0x710 <_Z12configPortalv+0x62>
+ 70e:	8b c0       	rjmp	.+278    	; 0x826 <_Z12configPortalv+0x178>
+ 710:	60 f5       	brcc	.+88     	; 0x76a <_Z12configPortalv+0xbc>
+ 712:	84 37       	cpi	r24, 0x74	; 116
+ 714:	29 e6       	ldi	r18, 0x69	; 105
+ 716:	92 07       	cpc	r25, r18
+ 718:	28 e7       	ldi	r18, 0x78	; 120
+ 71a:	a2 07       	cpc	r26, r18
+ 71c:	25 e6       	ldi	r18, 0x65	; 101
+ 71e:	b2 07       	cpc	r27, r18
+ 720:	09 f4       	brne	.+2      	; 0x724 <_Z12configPortalv+0x76>
+ 722:	5e c0       	rjmp	.+188    	; 0x7e0 <_Z12configPortalv+0x132>
+ 724:	40 f4       	brcc	.+16     	; 0x736 <_Z12configPortalv+0x88>
+ 726:	81 36       	cpi	r24, 0x61	; 97
+ 728:	94 47       	sbci	r25, 0x74	; 116
+ 72a:	a1 46       	sbci	r26, 0x61	; 97
+ 72c:	b4 46       	sbci	r27, 0x64	; 100
+ 72e:	09 f0       	breq	.+2      	; 0x732 <_Z12configPortalv+0x84>
+ 730:	99 c0       	rjmp	.+306    	; 0x864 <_Z12configPortalv+0x1b6>
+			{
+				case 0x64617461:		//command 'data'
+					printData();
+ 732:	c0 de       	rcall	.-640    	; 0x4b4 <_Z9printDatav>
+					break;
+ 734:	ce c0       	rjmp	.+412    	; 0x8d2 <_Z12configPortalv+0x224>
+				inputBuffer[i] = tolower(inputBuffer[i]);
+
+			uint32_t receivedCode = ((uint32_t)inputBuffer[0] << 24) | ((uint32_t)inputBuffer[1] << 16) | ((uint32_t)inputBuffer[2] << 8)| ((uint32_t)inputBuffer[3] << 0);
+
+			int8_t index = -1;
+			switch (receivedCode)
+ 736:	84 37       	cpi	r24, 0x74	; 116
+ 738:	25 e7       	ldi	r18, 0x75	; 117
+ 73a:	92 07       	cpc	r25, r18
+ 73c:	23 e6       	ldi	r18, 0x63	; 99
+ 73e:	a2 07       	cpc	r26, r18
+ 740:	29 e6       	ldi	r18, 0x69	; 105
+ 742:	b2 07       	cpc	r27, r18
+ 744:	09 f4       	brne	.+2      	; 0x748 <_Z12configPortalv+0x9a>
+ 746:	64 c0       	rjmp	.+200    	; 0x810 <_Z12configPortalv+0x162>
+ 748:	88 37       	cpi	r24, 0x78	; 120
+ 74a:	91 46       	sbci	r25, 0x61	; 97
+ 74c:	ad 46       	sbci	r26, 0x6D	; 109
+ 74e:	b9 46       	sbci	r27, 0x69	; 105
+ 750:	09 f0       	breq	.+2      	; 0x754 <_Z12configPortalv+0xa6>
+ 752:	88 c0       	rjmp	.+272    	; 0x864 <_Z12configPortalv+0x1b6>
+					Vpre = convertInt();
+					checkMinMax(&Vpre, index);
+					break;
+				case 0x696d6178:		//Imax
+					index = 2;
+					Imax = convertInt();
+ 754:	27 df       	rcall	.-434    	; 0x5a4 <_Z10convertIntv>
+ 756:	90 93 88 00 	sts	0x0088, r25	; 0x800088 <Imax+0x1>
+ 75a:	80 93 87 00 	sts	0x0087, r24	; 0x800087 <Imax>
+					checkMinMax(&Imax, index);
+ 75e:	62 e0       	ldi	r22, 0x02	; 2
+ 760:	87 e8       	ldi	r24, 0x87	; 135
+ 762:	90 e0       	ldi	r25, 0x00	; 0
+ 764:	84 df       	rcall	.-248    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 1;
+					Vpre = convertInt();
+					checkMinMax(&Vpre, index);
+					break;
+				case 0x696d6178:		//Imax
+					index = 2;
+ 766:	e2 e0       	ldi	r30, 0x02	; 2
+					Imax = convertInt();
+					checkMinMax(&Imax, index);
+					break;
+ 768:	81 c0       	rjmp	.+258    	; 0x86c <_Z12configPortalv+0x1be>
+				inputBuffer[i] = tolower(inputBuffer[i]);
+
+			uint32_t receivedCode = ((uint32_t)inputBuffer[0] << 24) | ((uint32_t)inputBuffer[1] << 16) | ((uint32_t)inputBuffer[2] << 8)| ((uint32_t)inputBuffer[3] << 0);
+
+			int8_t index = -1;
+			switch (receivedCode)
+ 76a:	8e 36       	cpi	r24, 0x6E	; 110
+ 76c:	2f e6       	ldi	r18, 0x6F	; 111
+ 76e:	92 07       	cpc	r25, r18
+ 770:	23 e6       	ldi	r18, 0x63	; 99
+ 772:	a2 07       	cpc	r26, r18
+ 774:	26 e7       	ldi	r18, 0x76	; 118
+ 776:	b2 07       	cpc	r27, r18
+ 778:	09 f4       	brne	.+2      	; 0x77c <_Z12configPortalv+0xce>
+ 77a:	69 c0       	rjmp	.+210    	; 0x84e <_Z12configPortalv+0x1a0>
+ 77c:	c0 f4       	brcc	.+48     	; 0x7ae <_Z12configPortalv+0x100>
+ 77e:	88 37       	cpi	r24, 0x78	; 120
+ 780:	21 e6       	ldi	r18, 0x61	; 97
+ 782:	92 07       	cpc	r25, r18
+ 784:	2d e6       	ldi	r18, 0x6D	; 109
+ 786:	a2 07       	cpc	r26, r18
+ 788:	24 e7       	ldi	r18, 0x74	; 116
+ 78a:	b2 07       	cpc	r27, r18
+ 78c:	09 f4       	brne	.+2      	; 0x790 <_Z12configPortalv+0xe2>
+ 78e:	56 c0       	rjmp	.+172    	; 0x83c <_Z12configPortalv+0x18e>
+ 790:	8e 36       	cpi	r24, 0x6E	; 110
+ 792:	99 46       	sbci	r25, 0x69	; 105
+ 794:	ad 46       	sbci	r26, 0x6D	; 109
+ 796:	b4 47       	sbci	r27, 0x74	; 116
+ 798:	09 f0       	breq	.+2      	; 0x79c <_Z12configPortalv+0xee>
+ 79a:	64 c0       	rjmp	.+200    	; 0x864 <_Z12configPortalv+0x1b6>
+					Ipre = convertInt();
+					checkMinMax(&Ipre, index);
+					break;
+				case 0x746d696e:		//Tmin
+					index = 5;
+					Tmin = convertInt();
+ 79c:	03 df       	rcall	.-506    	; 0x5a4 <_Z10convertIntv>
+ 79e:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <Tmin>
+					checkMinMax((uint16_t*)&Tmin, index);
+ 7a2:	65 e0       	ldi	r22, 0x05	; 5
+ 7a4:	80 e8       	ldi	r24, 0x80	; 128
+ 7a6:	90 e0       	ldi	r25, 0x00	; 0
+ 7a8:	62 df       	rcall	.-316    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 4;
+					Ipre = convertInt();
+					checkMinMax(&Ipre, index);
+					break;
+				case 0x746d696e:		//Tmin
+					index = 5;
+ 7aa:	e5 e0       	ldi	r30, 0x05	; 5
+					Tmin = convertInt();
+					checkMinMax((uint16_t*)&Tmin, index);
+					break;
+ 7ac:	5f c0       	rjmp	.+190    	; 0x86c <_Z12configPortalv+0x1be>
+				inputBuffer[i] = tolower(inputBuffer[i]);
+
+			uint32_t receivedCode = ((uint32_t)inputBuffer[0] << 24) | ((uint32_t)inputBuffer[1] << 16) | ((uint32_t)inputBuffer[2] << 8)| ((uint32_t)inputBuffer[3] << 0);
+
+			int8_t index = -1;
+			switch (receivedCode)
+ 7ae:	88 37       	cpi	r24, 0x78	; 120
+ 7b0:	21 e6       	ldi	r18, 0x61	; 97
+ 7b2:	92 07       	cpc	r25, r18
+ 7b4:	2d e6       	ldi	r18, 0x6D	; 109
+ 7b6:	a2 07       	cpc	r26, r18
+ 7b8:	26 e7       	ldi	r18, 0x76	; 118
+ 7ba:	b2 07       	cpc	r27, r18
+ 7bc:	f1 f0       	breq	.+60     	; 0x7fa <_Z12configPortalv+0x14c>
+ 7be:	85 36       	cpi	r24, 0x65	; 101
+ 7c0:	92 47       	sbci	r25, 0x72	; 114
+ 7c2:	a0 47       	sbci	r26, 0x70	; 112
+ 7c4:	b6 47       	sbci	r27, 0x76	; 118
+ 7c6:	09 f0       	breq	.+2      	; 0x7ca <_Z12configPortalv+0x11c>
+ 7c8:	4d c0       	rjmp	.+154    	; 0x864 <_Z12configPortalv+0x1b6>
+					Vmax = convertInt();
+					checkMinMax(&Vmax, index);
+					break;
+				case 0x76707265:		//Vpre
+					index = 1;
+					Vpre = convertInt();
+ 7ca:	ec de       	rcall	.-552    	; 0x5a4 <_Z10convertIntv>
+ 7cc:	90 93 8a 00 	sts	0x008A, r25	; 0x80008a <Vpre+0x1>
+ 7d0:	80 93 89 00 	sts	0x0089, r24	; 0x800089 <Vpre>
+					checkMinMax(&Vpre, index);
+ 7d4:	61 e0       	ldi	r22, 0x01	; 1
+ 7d6:	89 e8       	ldi	r24, 0x89	; 137
+ 7d8:	90 e0       	ldi	r25, 0x00	; 0
+ 7da:	49 df       	rcall	.-366    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 0;
+					Vmax = convertInt();
+					checkMinMax(&Vmax, index);
+					break;
+				case 0x76707265:		//Vpre
+					index = 1;
+ 7dc:	e1 e0       	ldi	r30, 0x01	; 1
+					Vpre = convertInt();
+					checkMinMax(&Vpre, index);
+					break;
+ 7de:	46 c0       	rjmp	.+140    	; 0x86c <_Z12configPortalv+0x1be>
+			{
+				case 0x64617461:		//command 'data'
+					printData();
+					break;
+				case 0x65786974:		//command 'exit'
+					saveEEPROM();
+ 7e0:	fb de       	rcall	.-522    	; 0x5d8 <_Z10saveEEPROMv>
+					uart_sendString_P(PSTR("data saved, restarting\n"));
+ 7e2:	8d e8       	ldi	r24, 0x8D	; 141
+ 7e4:	91 e0       	ldi	r25, 0x01	; 1
+ 7e6:	b1 d2       	rcall	.+1378   	; 0xd4a <_Z17uart_sendString_PPKc>
+				: "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)),
+				"r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))),
+				"r" ((uint8_t) ((value & 0x08 ? _WD_PS3_MASK : 0x00) |
+						_BV(WDE) | (value & 0x07)) )
+				: "r0"
+		);
+ 7e8:	98 e0       	ldi	r25, 0x08	; 8
+ 7ea:	88 e1       	ldi	r24, 0x18	; 24
+ 7ec:	0f b6       	in	r0, 0x3f	; 63
+ 7ee:	f8 94       	cli
+ 7f0:	a8 95       	wdr
+ 7f2:	81 bd       	out	0x21, r24	; 33
+ 7f4:	0f be       	out	0x3f, r0	; 63
+ 7f6:	91 bd       	out	0x21, r25	; 33
+ 7f8:	ff cf       	rjmp	.-2      	; 0x7f8 <_Z12configPortalv+0x14a>
+					wdt_enable(WDTO_15MS);
+					while (1);
+					break;
+				case 0x766d6178:		//Vmax
+					index = 0;
+					Vmax = convertInt();
+ 7fa:	d4 de       	rcall	.-600    	; 0x5a4 <_Z10convertIntv>
+ 7fc:	90 93 8c 00 	sts	0x008C, r25	; 0x80008c <Vmax+0x1>
+ 800:	80 93 8b 00 	sts	0x008B, r24	; 0x80008b <Vmax>
+					checkMinMax(&Vmax, index);
+ 804:	60 e0       	ldi	r22, 0x00	; 0
+ 806:	8b e8       	ldi	r24, 0x8B	; 139
+ 808:	90 e0       	ldi	r25, 0x00	; 0
+ 80a:	31 df       	rcall	.-414    	; 0x66e <_Z11checkMinMaxPjh>
+					uart_sendString_P(PSTR("data saved, restarting\n"));
+					wdt_enable(WDTO_15MS);
+					while (1);
+					break;
+				case 0x766d6178:		//Vmax
+					index = 0;
+ 80c:	e0 e0       	ldi	r30, 0x00	; 0
+					Vmax = convertInt();
+					checkMinMax(&Vmax, index);
+					break;
+ 80e:	2e c0       	rjmp	.+92     	; 0x86c <_Z12configPortalv+0x1be>
+					Imax = convertInt();
+					checkMinMax(&Imax, index);
+					break;
+				case 0x69637574:		//Icut
+					index = 3;
+					Icut = convertInt();
+ 810:	c9 de       	rcall	.-622    	; 0x5a4 <_Z10convertIntv>
+ 812:	90 93 86 00 	sts	0x0086, r25	; 0x800086 <Icut+0x1>
+ 816:	80 93 85 00 	sts	0x0085, r24	; 0x800085 <Icut>
+					checkMinMax(&Icut, index);
+ 81a:	63 e0       	ldi	r22, 0x03	; 3
+ 81c:	85 e8       	ldi	r24, 0x85	; 133
+ 81e:	90 e0       	ldi	r25, 0x00	; 0
+ 820:	26 df       	rcall	.-436    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 2;
+					Imax = convertInt();
+					checkMinMax(&Imax, index);
+					break;
+				case 0x69637574:		//Icut
+					index = 3;
+ 822:	e3 e0       	ldi	r30, 0x03	; 3
+					Icut = convertInt();
+					checkMinMax(&Icut, index);
+					break;
+ 824:	23 c0       	rjmp	.+70     	; 0x86c <_Z12configPortalv+0x1be>
+				case 0x69707265:		//Ipre
+					index = 4;
+					Ipre = convertInt();
+ 826:	be de       	rcall	.-644    	; 0x5a4 <_Z10convertIntv>
+ 828:	90 93 84 00 	sts	0x0084, r25	; 0x800084 <Ipre+0x1>
+ 82c:	80 93 83 00 	sts	0x0083, r24	; 0x800083 <Ipre>
+					checkMinMax(&Ipre, index);
+ 830:	64 e0       	ldi	r22, 0x04	; 4
+ 832:	83 e8       	ldi	r24, 0x83	; 131
+ 834:	90 e0       	ldi	r25, 0x00	; 0
+ 836:	1b df       	rcall	.-458    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 3;
+					Icut = convertInt();
+					checkMinMax(&Icut, index);
+					break;
+				case 0x69707265:		//Ipre
+					index = 4;
+ 838:	e4 e0       	ldi	r30, 0x04	; 4
+					Ipre = convertInt();
+					checkMinMax(&Ipre, index);
+					break;
+ 83a:	18 c0       	rjmp	.+48     	; 0x86c <_Z12configPortalv+0x1be>
+					Tmin = convertInt();
+					checkMinMax((uint16_t*)&Tmin, index);
+					break;
+				case 0x746d6178:		//Tmax
+					index = 6;
+					Tmax = convertInt();
+ 83c:	b3 de       	rcall	.-666    	; 0x5a4 <_Z10convertIntv>
+ 83e:	80 93 7f 00 	sts	0x007F, r24	; 0x80007f <Tmax>
+					checkMinMax((uint16_t*)&Tmax, index);
+ 842:	66 e0       	ldi	r22, 0x06	; 6
+ 844:	8f e7       	ldi	r24, 0x7F	; 127
+ 846:	90 e0       	ldi	r25, 0x00	; 0
+ 848:	12 df       	rcall	.-476    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 5;
+					Tmin = convertInt();
+					checkMinMax((uint16_t*)&Tmin, index);
+					break;
+				case 0x746d6178:		//Tmax
+					index = 6;
+ 84a:	e6 e0       	ldi	r30, 0x06	; 6
+					Tmax = convertInt();
+					checkMinMax((uint16_t*)&Tmax, index);
+					break;
+ 84c:	0f c0       	rjmp	.+30     	; 0x86c <_Z12configPortalv+0x1be>
+				case 0x76636f6e:		//Vcon
+					index = 7;
+					Vcon = convertInt();
+ 84e:	aa de       	rcall	.-684    	; 0x5a4 <_Z10convertIntv>
+ 850:	90 93 82 00 	sts	0x0082, r25	; 0x800082 <Vcon+0x1>
+ 854:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <Vcon>
+					checkMinMax(&Vcon, index);
+ 858:	67 e0       	ldi	r22, 0x07	; 7
+ 85a:	81 e8       	ldi	r24, 0x81	; 129
+ 85c:	90 e0       	ldi	r25, 0x00	; 0
+ 85e:	07 df       	rcall	.-498    	; 0x66e <_Z11checkMinMaxPjh>
+					index = 6;
+					Tmax = convertInt();
+					checkMinMax((uint16_t*)&Tmax, index);
+					break;
+				case 0x76636f6e:		//Vcon
+					index = 7;
+ 860:	e7 e0       	ldi	r30, 0x07	; 7
+					Vcon = convertInt();
+					checkMinMax(&Vcon, index);
+					break;
+ 862:	04 c0       	rjmp	.+8      	; 0x86c <_Z12configPortalv+0x1be>
+				default:
+					uart_sendString_P(PSTR("Invalid command!\n"));
+ 864:	8b e7       	ldi	r24, 0x7B	; 123
+ 866:	91 e0       	ldi	r25, 0x01	; 1
+ 868:	70 d2       	rcall	.+1248   	; 0xd4a <_Z17uart_sendString_PPKc>
+ 86a:	33 c0       	rjmp	.+102    	; 0x8d2 <_Z12configPortalv+0x224>
+			}
+
+			if (index >= 0)
+			{
+				for (uint8_t j = 0; j < 4; j++)
+					uart_sendChar(pgm_read_byte(&paramName[index * 4 + j]));
+ 86c:	0e 2f       	mov	r16, r30
+ 86e:	ee 0f       	add	r30, r30
+ 870:	11 0b       	sbc	r17, r17
+ 872:	78 01       	movw	r14, r16
+ 874:	ee 0c       	add	r14, r14
+ 876:	ff 1c       	adc	r15, r15
+ 878:	ee 0c       	add	r14, r14
+ 87a:	ff 1c       	adc	r15, r15
+ 87c:	c1 2c       	mov	r12, r1
+ 87e:	d1 2c       	mov	r13, r1
+ 880:	f7 01       	movw	r30, r14
+ 882:	ec 0d       	add	r30, r12
+ 884:	fd 1d       	adc	r31, r13
+ 886:	ea 54       	subi	r30, 0x4A	; 74
+ 888:	fe 4f       	sbci	r31, 0xFE	; 254
+ 88a:	84 91       	lpm	r24, Z
+ 88c:	27 d2       	rcall	.+1102   	; 0xcdc <_Z13uart_sendCharc>
+ 88e:	8f ef       	ldi	r24, 0xFF	; 255
+ 890:	c8 1a       	sub	r12, r24
+ 892:	d8 0a       	sbc	r13, r24
+					uart_sendString_P(PSTR("Invalid command!\n"));
+			}
+
+			if (index >= 0)
+			{
+				for (uint8_t j = 0; j < 4; j++)
+ 894:	24 e0       	ldi	r18, 0x04	; 4
+ 896:	c2 16       	cp	r12, r18
+ 898:	d1 04       	cpc	r13, r1
+ 89a:	91 f7       	brne	.-28     	; 0x880 <_Z12configPortalv+0x1d2>
+					uart_sendChar(pgm_read_byte(&paramName[index * 4 + j]));
+
+				uart_sendString_P(PSTR(" set to "));
+ 89c:	82 e7       	ldi	r24, 0x72	; 114
+ 89e:	91 e0       	ldi	r25, 0x01	; 1
+ 8a0:	54 d2       	rcall	.+1192   	; 0xd4a <_Z17uart_sendString_PPKc>
+
+				getActualValues();
+ 8a2:	d3 dd       	rcall	.-1114   	; 0x44a <_Z15getActualValuesv>
+				uart_sendNumber(actValue[index]);
+ 8a4:	00 0f       	add	r16, r16
+ 8a6:	11 1f       	adc	r17, r17
+ 8a8:	f8 01       	movw	r30, r16
+ 8aa:	e0 5a       	subi	r30, 0xA0	; 160
+ 8ac:	ff 4f       	sbci	r31, 0xFF	; 255
+ 8ae:	6a e0       	ldi	r22, 0x0A	; 10
+ 8b0:	80 81       	ld	r24, Z
+ 8b2:	91 81       	ldd	r25, Z+1	; 0x01
+ 8b4:	58 d2       	rcall	.+1200   	; 0xd66 <_Z15uart_sendNumberjh>
+
+				uart_sendChar(' ');
+ 8b6:	80 e2       	ldi	r24, 0x20	; 32
+ 8b8:	11 d2       	rcall	.+1058   	; 0xcdc <_Z13uart_sendCharc>
+				uart_sendChar(pgm_read_byte(&unit[index * 2]));
+ 8ba:	f8 01       	movw	r30, r16
+ 8bc:	eb 55       	subi	r30, 0x5B	; 91
+ 8be:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8c0:	84 91       	lpm	r24, Z
+ 8c2:	0c d2       	rcall	.+1048   	; 0xcdc <_Z13uart_sendCharc>
+				uart_sendChar(pgm_read_byte(&unit[index * 2 + 1]));
+ 8c4:	f8 01       	movw	r30, r16
+ 8c6:	ea 55       	subi	r30, 0x5A	; 90
+ 8c8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8ca:	84 91       	lpm	r24, Z
+ 8cc:	07 d2       	rcall	.+1038   	; 0xcdc <_Z13uart_sendCharc>
+				uart_sendChar('\n');
+ 8ce:	8a e0       	ldi	r24, 0x0A	; 10
+ 8d0:	05 d2       	rcall	.+1034   	; 0xcdc <_Z13uart_sendCharc>
+			}
+
+			if (index >= 0)
+			{
+				for (uint8_t j = 0; j < 4; j++)
+					uart_sendChar(pgm_read_byte(&paramName[index * 4 + j]));
+ 8d2:	80 e0       	ldi	r24, 0x00	; 0
+ 8d4:	90 e0       	ldi	r25, 0x00	; 0
+				uart_sendChar(pgm_read_byte(&unit[index * 2 + 1]));
+				uart_sendChar('\n');
+			}
+			
+			for (uint8_t i = 0; i < 12; i ++)
+				inputBuffer[i] = ' ';
+ 8d6:	fc 01       	movw	r30, r24
+ 8d8:	e1 57       	subi	r30, 0x71	; 113
+ 8da:	ff 4f       	sbci	r31, 0xFF	; 255
+ 8dc:	b0 82       	st	Z, r11
+ 8de:	01 96       	adiw	r24, 0x01	; 1
+				uart_sendChar(pgm_read_byte(&unit[index * 2]));
+				uart_sendChar(pgm_read_byte(&unit[index * 2 + 1]));
+				uart_sendChar('\n');
+			}
+			
+			for (uint8_t i = 0; i < 12; i ++)
+ 8e0:	8c 30       	cpi	r24, 0x0C	; 12
+ 8e2:	91 05       	cpc	r25, r1
+ 8e4:	c1 f7       	brne	.-16     	; 0x8d6 <_Z12configPortalv+0x228>
+ 8e6:	e6 ce       	rjmp	.-564    	; 0x6b4 <_Z12configPortalv+0x6>
+
+000008e8 <_Z21ws2812_sendarray_maskPhjhS_S_>:
+#define w_nop4  w_nop2 w_nop2
+#define w_nop8  w_nop4 w_nop4
+#define w_nop16 w_nop8 w_nop8
+
+void ws2812_sendarray_mask(uint8_t *data, uint16_t datlen, uint8_t maskhi, uint8_t *port, uint8_t *portreg)
+{
+ 8e8:	d9 01       	movw	r26, r18
+  uint8_t curbyte,ctr,masklo;
+  uint8_t sreg_prev;
+  
+  masklo = ~maskhi & *port;
+ 8ea:	3c 91       	ld	r19, X
+ 8ec:	54 2f       	mov	r21, r20
+ 8ee:	50 95       	com	r21
+ 8f0:	53 23       	and	r21, r19
+  maskhi |= *port;
+ 8f2:	34 2b       	or	r19, r20
+  sreg_prev=SREG;
+ 8f4:	2f b7       	in	r18, 0x3f	; 63
+  cli();  
+ 8f6:	f8 94       	cli
+ 8f8:	fc 01       	movw	r30, r24
+ 8fa:	68 0f       	add	r22, r24
+ 8fc:	79 1f       	adc	r23, r25
+
+  while (datlen--) {
+ 8fe:	e6 17       	cp	r30, r22
+ 900:	f7 07       	cpc	r31, r23
+ 902:	99 f0       	breq	.+38     	; 0x92a <skipone41+0xa>
+    curbyte=*data++;
+ 904:	81 91       	ld	r24, Z+
+    "       dec   %0    \n\t"    //  '1' [+4] '0' [+3]
+    "       brne  loop%=\n\t"    //  '1' [+5] '0' [+4]
+    :	"=&d" (ctr)
+//    :	"r" (curbyte), "I" (_SFR_IO_ADDR(ws2812_PORTREG)), "r" (maskhi), "r" (masklo)
+    :	"r" (curbyte), "x" (port), "r" (maskhi), "r" (masklo)
+    );
+ 906:	98 e0       	ldi	r25, 0x08	; 8
+
+00000908 <loop41>:
+ 908:	3c 93       	st	X, r19
+ 90a:	00 c0       	rjmp	.+0      	; 0x90c <loop41+0x4>
+ 90c:	00 c0       	rjmp	.+0      	; 0x90e <loop41+0x6>
+ 90e:	87 ff       	sbrs	r24, 7
+ 910:	5c 93       	st	X, r21
+ 912:	88 0f       	add	r24, r24
+ 914:	00 c0       	rjmp	.+0      	; 0x916 <loop41+0xe>
+ 916:	00 c0       	rjmp	.+0      	; 0x918 <loop41+0x10>
+ 918:	00 c0       	rjmp	.+0      	; 0x91a <loop41+0x12>
+ 91a:	00 c0       	rjmp	.+0      	; 0x91c <loop41+0x14>
+ 91c:	08 f4       	brcc	.+2      	; 0x920 <skipone41>
+ 91e:	5c 93       	st	X, r21
+
+00000920 <skipone41>:
+ 920:	00 00       	nop
+ 922:	00 c0       	rjmp	.+0      	; 0x924 <skipone41+0x4>
+ 924:	9a 95       	dec	r25
+ 926:	81 f7       	brne	.-32     	; 0x908 <loop41>
+  masklo = ~maskhi & *port;
+  maskhi |= *port;
+  sreg_prev=SREG;
+  cli();  
+
+  while (datlen--) {
+ 928:	ea cf       	rjmp	.-44     	; 0x8fe <_Z21ws2812_sendarray_maskPhjhS_S_+0x16>
+//    :	"r" (curbyte), "I" (_SFR_IO_ADDR(ws2812_PORTREG)), "r" (maskhi), "r" (masklo)
+    :	"r" (curbyte), "x" (port), "r" (maskhi), "r" (masklo)
+    );
+  }
+  
+  SREG=sreg_prev;
+ 92a:	2f bf       	out	0x3f, r18	; 63
+ 92c:	08 95       	ret
+
+0000092e <main>:
+void wdt_init(void) __attribute__((naked)) __attribute__((section(".init3")));
+
+int main(void)
+{
+    //init UART
+	uart_init();
+ 92e:	c3 d1       	rcall	.+902    	; 0xcb6 <_Z9uart_initv>
+	uart_sendString_P(PSTR("\n\n\nSTART\n"));
+ 930:	8a ec       	ldi	r24, 0xCA	; 202
+ 932:	92 e0       	ldi	r25, 0x02	; 2
+ 934:	0a d2       	rcall	.+1044   	; 0xd4a <_Z17uart_sendString_PPKc>
+
+	//init TIM1 - timekeeping
+	TCCR1B = (1 << WGM12) | (1 << CS10) | (1 << CS11);
+ 936:	8b e0       	ldi	r24, 0x0B	; 11
+ 938:	8e bd       	out	0x2e, r24	; 46
+	OCR1A = 31250;
+ 93a:	82 e1       	ldi	r24, 0x12	; 18
+ 93c:	9a e7       	ldi	r25, 0x7A	; 122
+ 93e:	9b bd       	out	0x2b, r25	; 43
+ 940:	8a bd       	out	0x2a, r24	; 42
+	TIMSK1 = (1 << OCIE1A);
+ 942:	82 e0       	ldi	r24, 0x02	; 2
+ 944:	8c b9       	out	0x0c, r24	; 12
+
+	sei();
+ 946:	78 94       	sei
+
+	//init LED
+	DDRA |= (1 << DDA5);
+ 948:	d5 9a       	sbi	0x1a, 5	; 26
+
+	if (readEEPROM())
+ 94a:	06 dd       	rcall	.-1524   	; 0x358 <_Z10readEEPROMv>
+ 94c:	88 23       	and	r24, r24
+ 94e:	19 f0       	breq	.+6      	; 0x956 <main+0x28>
+		uart_sendString_P(PSTR("Data loaded from EEPROM\n"));
+ 950:	81 eb       	ldi	r24, 0xB1	; 177
+ 952:	92 e0       	ldi	r25, 0x02	; 2
+ 954:	02 c0       	rjmp	.+4      	; 0x95a <main+0x2c>
+	else
+		uart_sendString_P(PSTR("Nothing in EEPROM, defaults used\n"));
+ 956:	8f e8       	ldi	r24, 0x8F	; 143
+ 958:	92 e0       	ldi	r25, 0x02	; 2
+ 95a:	f7 d1       	rcall	.+1006   	; 0xd4a <_Z17uart_sendString_PPKc>
+
+	//wait for user to connect the battery
+	uart_sendString_P(PSTR("waiting for battery connection...\n"));
+ 95c:	8c e6       	ldi	r24, 0x6C	; 108
+ 95e:	92 e0       	ldi	r25, 0x02	; 2
+ 960:	f4 d1       	rcall	.+1000   	; 0xd4a <_Z17uart_sendString_PPKc>
+			break;
+
+		//we have received something over serial, enter setup portal
+		if (dataReady)
+		{
+			color[2] = 128;
+ 962:	c0 e8       	ldi	r28, 0x80	; 128
+	//wait for user to connect the battery
+	uart_sendString_P(PSTR("waiting for battery connection...\n"));
+	while (1)
+	{
+		//we have something connected, skip setup
+		if ((adc_measurement(ADC_VOUT, 8) * 2) > Vcon)
+ 964:	68 e0       	ldi	r22, 0x08	; 8
+ 966:	80 e0       	ldi	r24, 0x00	; 0
+ 968:	cf dc       	rcall	.-1634   	; 0x308 <_Z15adc_measurementhh>
+ 96a:	88 0f       	add	r24, r24
+ 96c:	99 1f       	adc	r25, r25
+ 96e:	20 91 81 00 	lds	r18, 0x0081	; 0x800081 <Vcon>
+ 972:	30 91 82 00 	lds	r19, 0x0082	; 0x800082 <Vcon+0x1>
+ 976:	28 17       	cp	r18, r24
+ 978:	39 07       	cpc	r19, r25
+ 97a:	e8 f1       	brcs	.+122    	; 0x9f6 <main+0xc8>
+			break;
+
+		//we have received something over serial, enter setup portal
+		if (dataReady)
+ 97c:	80 91 8d 00 	lds	r24, 0x008D	; 0x80008d <dataReady>
+ 980:	88 23       	and	r24, r24
+ 982:	69 f0       	breq	.+26     	; 0x99e <main+0x70>
+		{
+			color[2] = 128;
+ 984:	c0 93 77 00 	sts	0x0077, r28	; 0x800077 <color+0x2>
+			ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+ 988:	0a e3       	ldi	r16, 0x3A	; 58
+ 98a:	10 e0       	ldi	r17, 0x00	; 0
+ 98c:	2b e3       	ldi	r18, 0x3B	; 59
+ 98e:	30 e0       	ldi	r19, 0x00	; 0
+ 990:	40 e2       	ldi	r20, 0x20	; 32
+ 992:	63 e0       	ldi	r22, 0x03	; 3
+ 994:	70 e0       	ldi	r23, 0x00	; 0
+ 996:	85 e7       	ldi	r24, 0x75	; 117
+ 998:	90 e0       	ldi	r25, 0x00	; 0
+ 99a:	a6 df       	rcall	.-180    	; 0x8e8 <_Z21ws2812_sendarray_maskPhjhS_S_>
+			configPortal();
+ 99c:	88 de       	rcall	.-752    	; 0x6ae <_Z12configPortalv>
+		}
+		
+		uart_sendString_P(PSTR("to start config, send anything to the device\n"));
+ 99e:	8e e3       	ldi	r24, 0x3E	; 62
+ 9a0:	92 e0       	ldi	r25, 0x02	; 2
+ 9a2:	d3 d1       	rcall	.+934    	; 0xd4a <_Z17uart_sendString_PPKc>
+		color[2] = 128;
+ 9a4:	c0 93 77 00 	sts	0x0077, r28	; 0x800077 <color+0x2>
+		ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+ 9a8:	0a e3       	ldi	r16, 0x3A	; 58
+ 9aa:	10 e0       	ldi	r17, 0x00	; 0
+ 9ac:	2b e3       	ldi	r18, 0x3B	; 59
+ 9ae:	30 e0       	ldi	r19, 0x00	; 0
+ 9b0:	40 e2       	ldi	r20, 0x20	; 32
+ 9b2:	63 e0       	ldi	r22, 0x03	; 3
+ 9b4:	70 e0       	ldi	r23, 0x00	; 0
+ 9b6:	85 e7       	ldi	r24, 0x75	; 117
+ 9b8:	90 e0       	ldi	r25, 0x00	; 0
+ 9ba:	96 df       	rcall	.-212    	; 0x8e8 <_Z21ws2812_sendarray_maskPhjhS_S_>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 9bc:	2f e7       	ldi	r18, 0x7F	; 127
+ 9be:	84 e8       	ldi	r24, 0x84	; 132
+ 9c0:	9e e1       	ldi	r25, 0x1E	; 30
+ 9c2:	21 50       	subi	r18, 0x01	; 1
+ 9c4:	80 40       	sbci	r24, 0x00	; 0
+ 9c6:	90 40       	sbci	r25, 0x00	; 0
+ 9c8:	e1 f7       	brne	.-8      	; 0x9c2 <main+0x94>
+ 9ca:	00 c0       	rjmp	.+0      	; 0x9cc <main+0x9e>
+ 9cc:	00 00       	nop
+		_delay_ms(500);
+		color[2] = 0;
+ 9ce:	10 92 77 00 	sts	0x0077, r1	; 0x800077 <color+0x2>
+		ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+ 9d2:	2b e3       	ldi	r18, 0x3B	; 59
+ 9d4:	30 e0       	ldi	r19, 0x00	; 0
+ 9d6:	40 e2       	ldi	r20, 0x20	; 32
+ 9d8:	63 e0       	ldi	r22, 0x03	; 3
+ 9da:	70 e0       	ldi	r23, 0x00	; 0
+ 9dc:	85 e7       	ldi	r24, 0x75	; 117
+ 9de:	90 e0       	ldi	r25, 0x00	; 0
+ 9e0:	83 df       	rcall	.-250    	; 0x8e8 <_Z21ws2812_sendarray_maskPhjhS_S_>
+ 9e2:	2f e7       	ldi	r18, 0x7F	; 127
+ 9e4:	84 e8       	ldi	r24, 0x84	; 132
+ 9e6:	9e e1       	ldi	r25, 0x1E	; 30
+ 9e8:	21 50       	subi	r18, 0x01	; 1
+ 9ea:	80 40       	sbci	r24, 0x00	; 0
+ 9ec:	90 40       	sbci	r25, 0x00	; 0
+ 9ee:	e1 f7       	brne	.-8      	; 0x9e8 <main+0xba>
+ 9f0:	00 c0       	rjmp	.+0      	; 0x9f2 <main+0xc4>
+ 9f2:	00 00       	nop
+ 9f4:	b7 cf       	rjmp	.-146    	; 0x964 <main+0x36>
+		_delay_ms(500);
+	}
+
+	//do we need to precharge?
+	if ((adc_measurement(ADC_VOUT, 16) * 2) < Vpre)
+ 9f6:	60 e1       	ldi	r22, 0x10	; 16
+ 9f8:	80 e0       	ldi	r24, 0x00	; 0
+ 9fa:	86 dc       	rcall	.-1780   	; 0x308 <_Z15adc_measurementhh>
+ 9fc:	88 0f       	add	r24, r24
+ 9fe:	99 1f       	adc	r25, r25
+ a00:	20 91 89 00 	lds	r18, 0x0089	; 0x800089 <Vpre>
+ a04:	30 91 8a 00 	lds	r19, 0x008A	; 0x80008a <Vpre+0x1>
+ a08:	82 17       	cp	r24, r18
+ a0a:	93 07       	cpc	r25, r19
+ a0c:	98 f4       	brcc	.+38     	; 0xa34 <main+0x106>
+	{
+		precharge = true;
+ a0e:	81 e0       	ldi	r24, 0x01	; 1
+ a10:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <precharge>
+		Itemp = Imax;
+ a14:	80 91 87 00 	lds	r24, 0x0087	; 0x800087 <Imax>
+ a18:	90 91 88 00 	lds	r25, 0x0088	; 0x800088 <Imax+0x1>
+ a1c:	90 93 7a 00 	sts	0x007A, r25	; 0x80007a <Itemp+0x1>
+ a20:	80 93 79 00 	sts	0x0079, r24	; 0x800079 <Itemp>
+		Imax = Ipre;
+ a24:	80 91 83 00 	lds	r24, 0x0083	; 0x800083 <Ipre>
+ a28:	90 91 84 00 	lds	r25, 0x0084	; 0x800084 <Ipre+0x1>
+ a2c:	90 93 88 00 	sts	0x0088, r25	; 0x800088 <Imax+0x1>
+ a30:	80 93 87 00 	sts	0x0087, r24	; 0x800087 <Imax>
+	}
+
+	//init TIM0 - 8 bit PWM @ 80 kHz
+	TCCR0A = (1 << WGM00) | (1 << WGM01) | (1 << COM0A1) | (1 << COM0A0);
+ a34:	83 ec       	ldi	r24, 0xC3	; 195
+ a36:	80 bf       	out	0x30, r24	; 48
+	DDRB |= (1 << DDB2);
+ a38:	ba 9a       	sbi	0x17, 2	; 23
+	PWM_START;
+ a3a:	81 e0       	ldi	r24, 0x01	; 1
+ a3c:	83 bf       	out	0x33, r24	; 51
+
+	update = true;
+ a3e:	80 93 71 00 	sts	0x0071, r24	; 0x800071 <update>
+
+		if (update)
+		{
+			update = false;
+
+			Tact = (((uint16_t)adc_measurement(ADC_TEMP, 8) - 400) / 20);
+ a42:	c4 e1       	ldi	r28, 0x14	; 20
+ a44:	d0 e0       	ldi	r29, 0x00	; 0
+					PWM_STOP;
+					while (1);
+				}
+			
+				//we are not finished - orange color
+				color[0] = 50; color[1] = 128; color[2] = 0;
+ a46:	52 e3       	ldi	r21, 0x32	; 50
+ a48:	d5 2e       	mov	r13, r21
+ a4a:	60 e8       	ldi	r22, 0x80	; 128
+ a4c:	f6 2e       	mov	r15, r22
+			int16_t Vdelta = Vmax - Vact;
+			int16_t Idelta = Imax - Iact;
+			if (precharge)
+			{
+				//precharge - purple color
+				color[0] = 35; color[1] = 80; color[2] = 80;
+ a4e:	73 e2       	ldi	r23, 0x23	; 35
+ a50:	c7 2e       	mov	r12, r23
+ a52:	e0 e5       	ldi	r30, 0x50	; 80
+ a54:	ee 2e       	mov	r14, r30
+	PWM_START;
+
+	update = true;
+    while (1)
+    {
+		Vact = adc_measurement(ADC_VOUT, 16) * 2;
+ a56:	60 e1       	ldi	r22, 0x10	; 16
+ a58:	80 e0       	ldi	r24, 0x00	; 0
+ a5a:	56 dc       	rcall	.-1876   	; 0x308 <_Z15adc_measurementhh>
+ a5c:	88 0f       	add	r24, r24
+ a5e:	99 1f       	adc	r25, r25
+ a60:	90 93 7e 00 	sts	0x007E, r25	; 0x80007e <Vact+0x1>
+ a64:	80 93 7d 00 	sts	0x007D, r24	; 0x80007d <Vact>
+		Iact = adc_measurement(ADC_IOUT, 16) / 2;
+ a68:	60 e1       	ldi	r22, 0x10	; 16
+ a6a:	81 e0       	ldi	r24, 0x01	; 1
+ a6c:	4d dc       	rcall	.-1894   	; 0x308 <_Z15adc_measurementhh>
+ a6e:	9c 01       	movw	r18, r24
+ a70:	36 95       	lsr	r19
+ a72:	27 95       	ror	r18
+ a74:	30 93 7c 00 	sts	0x007C, r19	; 0x80007c <Iact+0x1>
+ a78:	20 93 7b 00 	sts	0x007B, r18	; 0x80007b <Iact>
+
+		//CC-CV regulation loop
+		if (((Vact > Vmax) | (Iact > Imax)) & (OCR0A > 0))
+ a7c:	e0 91 7d 00 	lds	r30, 0x007D	; 0x80007d <Vact>
+ a80:	f0 91 7e 00 	lds	r31, 0x007E	; 0x80007e <Vact+0x1>
+ a84:	60 91 8b 00 	lds	r22, 0x008B	; 0x80008b <Vmax>
+ a88:	70 91 8c 00 	lds	r23, 0x008C	; 0x80008c <Vmax+0x1>
+ a8c:	40 91 87 00 	lds	r20, 0x0087	; 0x800087 <Imax>
+ a90:	50 91 88 00 	lds	r21, 0x0088	; 0x800088 <Imax+0x1>
+ a94:	a6 b7       	in	r26, 0x36	; 54
+ a96:	81 e0       	ldi	r24, 0x01	; 1
+ a98:	6e 17       	cp	r22, r30
+ a9a:	7f 07       	cpc	r23, r31
+ a9c:	08 f0       	brcs	.+2      	; 0xaa0 <main+0x172>
+ a9e:	80 e0       	ldi	r24, 0x00	; 0
+ aa0:	91 e0       	ldi	r25, 0x01	; 1
+ aa2:	42 17       	cp	r20, r18
+ aa4:	53 07       	cpc	r21, r19
+ aa6:	08 f0       	brcs	.+2      	; 0xaaa <main+0x17c>
+ aa8:	90 e0       	ldi	r25, 0x00	; 0
+ aaa:	98 2b       	or	r25, r24
+ aac:	29 f0       	breq	.+10     	; 0xab8 <main+0x18a>
+ aae:	aa 23       	and	r26, r26
+ ab0:	19 f0       	breq	.+6      	; 0xab8 <main+0x18a>
+			OCR0A--;
+ ab2:	86 b7       	in	r24, 0x36	; 54
+ ab4:	81 50       	subi	r24, 0x01	; 1
+ ab6:	11 c0       	rjmp	.+34     	; 0xada <main+0x1ac>
+		else if ((Vact < Vmax) & (Iact < Imax) & (OCR0A < 0xFF))
+ ab8:	a6 b7       	in	r26, 0x36	; 54
+ aba:	81 e0       	ldi	r24, 0x01	; 1
+ abc:	e6 17       	cp	r30, r22
+ abe:	f7 07       	cpc	r31, r23
+ ac0:	08 f0       	brcs	.+2      	; 0xac4 <main+0x196>
+ ac2:	80 e0       	ldi	r24, 0x00	; 0
+ ac4:	91 e0       	ldi	r25, 0x01	; 1
+ ac6:	af 3f       	cpi	r26, 0xFF	; 255
+ ac8:	09 f4       	brne	.+2      	; 0xacc <main+0x19e>
+ aca:	90 e0       	ldi	r25, 0x00	; 0
+ acc:	98 23       	and	r25, r24
+ ace:	31 f0       	breq	.+12     	; 0xadc <main+0x1ae>
+ ad0:	24 17       	cp	r18, r20
+ ad2:	35 07       	cpc	r19, r21
+ ad4:	18 f4       	brcc	.+6      	; 0xadc <main+0x1ae>
+			OCR0A++;
+ ad6:	86 b7       	in	r24, 0x36	; 54
+ ad8:	8f 5f       	subi	r24, 0xFF	; 255
+ ada:	86 bf       	out	0x36, r24	; 54
+
+		if (update)
+ adc:	80 91 71 00 	lds	r24, 0x0071	; 0x800071 <update>
+ ae0:	88 23       	and	r24, r24
+ ae2:	09 f4       	brne	.+2      	; 0xae6 <main+0x1b8>
+ ae4:	b8 cf       	rjmp	.-144    	; 0xa56 <main+0x128>
+		{
+			update = false;
+ ae6:	10 92 71 00 	sts	0x0071, r1	; 0x800071 <update>
+
+			Tact = (((uint16_t)adc_measurement(ADC_TEMP, 8) - 400) / 20);
+ aea:	68 e0       	ldi	r22, 0x08	; 8
+ aec:	82 e0       	ldi	r24, 0x02	; 2
+ aee:	0c dc       	rcall	.-2024   	; 0x308 <_Z15adc_measurementhh>
+ af0:	80 59       	subi	r24, 0x90	; 144
+ af2:	91 40       	sbci	r25, 0x01	; 1
+ af4:	be 01       	movw	r22, r28
+ af6:	cc d1       	rcall	.+920    	; 0xe90 <__udivmodhi4>
+ af8:	60 93 78 00 	sts	0x0078, r22	; 0x800078 <Tact>
+
+			uart_sendString_P(PSTR("Vout: "));
+ afc:	87 e3       	ldi	r24, 0x37	; 55
+ afe:	92 e0       	ldi	r25, 0x02	; 2
+ b00:	24 d1       	rcall	.+584    	; 0xd4a <_Z17uart_sendString_PPKc>
+			uart_sendNumber(Vact);
+ b02:	6a e0       	ldi	r22, 0x0A	; 10
+ b04:	80 91 7d 00 	lds	r24, 0x007D	; 0x80007d <Vact>
+ b08:	90 91 7e 00 	lds	r25, 0x007E	; 0x80007e <Vact+0x1>
+ b0c:	2c d1       	rcall	.+600    	; 0xd66 <_Z15uart_sendNumberjh>
+			uart_sendString_P(PSTR(" mV; Iout: "));
+ b0e:	8b e2       	ldi	r24, 0x2B	; 43
+ b10:	92 e0       	ldi	r25, 0x02	; 2
+ b12:	1b d1       	rcall	.+566    	; 0xd4a <_Z17uart_sendString_PPKc>
+			uart_sendNumber(Iact);
+ b14:	6a e0       	ldi	r22, 0x0A	; 10
+ b16:	80 91 7b 00 	lds	r24, 0x007B	; 0x80007b <Iact>
+ b1a:	90 91 7c 00 	lds	r25, 0x007C	; 0x80007c <Iact+0x1>
+ b1e:	23 d1       	rcall	.+582    	; 0xd66 <_Z15uart_sendNumberjh>
+			uart_sendString_P(PSTR(" mA; t: "));
+ b20:	82 e2       	ldi	r24, 0x22	; 34
+ b22:	92 e0       	ldi	r25, 0x02	; 2
+ b24:	12 d1       	rcall	.+548    	; 0xd4a <_Z17uart_sendString_PPKc>
+			uart_sendNumber(Tact);
+ b26:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <Tact>
+ b2a:	6a e0       	ldi	r22, 0x0A	; 10
+ b2c:	90 e0       	ldi	r25, 0x00	; 0
+ b2e:	1b d1       	rcall	.+566    	; 0xd66 <_Z15uart_sendNumberjh>
+			uart_sendString_P(PSTR(" C\n"));
+ b30:	8e e1       	ldi	r24, 0x1E	; 30
+ b32:	92 e0       	ldi	r25, 0x02	; 2
+ b34:	0a d1       	rcall	.+532    	; 0xd4a <_Z17uart_sendString_PPKc>
+			uart_sendString_P(PSTR("\n"));
+ b36:	8c e1       	ldi	r24, 0x1C	; 28
+ b38:	92 e0       	ldi	r25, 0x02	; 2
+ b3a:	07 d1       	rcall	.+526    	; 0xd4a <_Z17uart_sendString_PPKc>
+
+			//precharge-CC-CV-finished determination loop
+			int16_t Vdelta = Vmax - Vact;
+			int16_t Idelta = Imax - Iact;
+			if (precharge)
+ b3c:	80 91 74 00 	lds	r24, 0x0074	; 0x800074 <precharge>
+ b40:	88 23       	and	r24, r24
+ b42:	41 f1       	breq	.+80     	; 0xb94 <main+0x266>
+			{
+				//precharge - purple color
+				color[0] = 35; color[1] = 80; color[2] = 80;
+ b44:	c0 92 75 00 	sts	0x0075, r12	; 0x800075 <color>
+ b48:	e0 92 76 00 	sts	0x0076, r14	; 0x800076 <color+0x1>
+ b4c:	e0 92 77 00 	sts	0x0077, r14	; 0x800077 <color+0x2>
+				ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+ b50:	0a e3       	ldi	r16, 0x3A	; 58
+ b52:	10 e0       	ldi	r17, 0x00	; 0
+ b54:	2b e3       	ldi	r18, 0x3B	; 59
+ b56:	30 e0       	ldi	r19, 0x00	; 0
+ b58:	40 e2       	ldi	r20, 0x20	; 32
+ b5a:	63 e0       	ldi	r22, 0x03	; 3
+ b5c:	70 e0       	ldi	r23, 0x00	; 0
+ b5e:	85 e7       	ldi	r24, 0x75	; 117
+ b60:	90 e0       	ldi	r25, 0x00	; 0
+ b62:	c2 de       	rcall	.-636    	; 0x8e8 <_Z21ws2812_sendarray_maskPhjhS_S_>
+
+				//are the conditions for precharging still true?
+				if ((adc_measurement(ADC_VOUT, 16) * 2) > Vpre)
+ b64:	60 e1       	ldi	r22, 0x10	; 16
+ b66:	80 e0       	ldi	r24, 0x00	; 0
+ b68:	cf db       	rcall	.-2146   	; 0x308 <_Z15adc_measurementhh>
+ b6a:	88 0f       	add	r24, r24
+ b6c:	99 1f       	adc	r25, r25
+ b6e:	20 91 89 00 	lds	r18, 0x0089	; 0x800089 <Vpre>
+ b72:	30 91 8a 00 	lds	r19, 0x008A	; 0x80008a <Vpre+0x1>
+ b76:	28 17       	cp	r18, r24
+ b78:	39 07       	cpc	r19, r25
+ b7a:	08 f0       	brcs	.+2      	; 0xb7e <main+0x250>
+ b7c:	5d c0       	rjmp	.+186    	; 0xc38 <main+0x30a>
+				{
+					precharge = false;
+ b7e:	10 92 74 00 	sts	0x0074, r1	; 0x800074 <precharge>
+					Imax = Itemp;
+ b82:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <Itemp>
+ b86:	90 91 7a 00 	lds	r25, 0x007A	; 0x80007a <Itemp+0x1>
+ b8a:	90 93 88 00 	sts	0x0088, r25	; 0x800088 <Imax+0x1>
+ b8e:	80 93 87 00 	sts	0x0087, r24	; 0x800087 <Imax>
+ b92:	52 c0       	rjmp	.+164    	; 0xc38 <main+0x30a>
+			uart_sendString_P(PSTR(" C\n"));
+			uart_sendString_P(PSTR("\n"));
+
+			//precharge-CC-CV-finished determination loop
+			int16_t Vdelta = Vmax - Vact;
+			int16_t Idelta = Imax - Iact;
+ b94:	40 91 7b 00 	lds	r20, 0x007B	; 0x80007b <Iact>
+ b98:	50 91 7c 00 	lds	r21, 0x007C	; 0x80007c <Iact+0x1>
+				{
+					precharge = false;
+					Imax = Itemp;
+				}
+			}
+			else if (abs(Vdelta) >= abs(Idelta))
+ b9c:	20 91 8b 00 	lds	r18, 0x008B	; 0x80008b <Vmax>
+ ba0:	30 91 8c 00 	lds	r19, 0x008C	; 0x80008c <Vmax+0x1>
+ ba4:	80 91 7d 00 	lds	r24, 0x007D	; 0x80007d <Vact>
+ ba8:	90 91 7e 00 	lds	r25, 0x007E	; 0x80007e <Vact+0x1>
+ bac:	28 1b       	sub	r18, r24
+ bae:	39 0b       	sbc	r19, r25
+ bb0:	37 ff       	sbrs	r19, 7
+ bb2:	03 c0       	rjmp	.+6      	; 0xbba <main+0x28c>
+ bb4:	31 95       	neg	r19
+ bb6:	21 95       	neg	r18
+ bb8:	31 09       	sbc	r19, r1
+ bba:	80 91 87 00 	lds	r24, 0x0087	; 0x800087 <Imax>
+ bbe:	90 91 88 00 	lds	r25, 0x0088	; 0x800088 <Imax+0x1>
+ bc2:	84 1b       	sub	r24, r20
+ bc4:	95 0b       	sbc	r25, r21
+ bc6:	97 ff       	sbrs	r25, 7
+ bc8:	03 c0       	rjmp	.+6      	; 0xbd0 <main+0x2a2>
+ bca:	91 95       	neg	r25
+ bcc:	81 95       	neg	r24
+ bce:	91 09       	sbc	r25, r1
+ bd0:	28 17       	cp	r18, r24
+ bd2:	39 07       	cpc	r19, r25
+ bd4:	1c f0       	brlt	.+6      	; 0xbdc <main+0x2ae>
+			{
+				//CC mode - red color
+				color[0] = 0; color[1] = 128; color[2] = 0;
+ bd6:	10 92 75 00 	sts	0x0075, r1	; 0x800075 <color>
+ bda:	20 c0       	rjmp	.+64     	; 0xc1c <main+0x2ee>
+				ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+			}
+			else
+			{
+				//CV mode
+				if (Iact < Icut)
+ bdc:	80 91 85 00 	lds	r24, 0x0085	; 0x800085 <Icut>
+ be0:	90 91 86 00 	lds	r25, 0x0086	; 0x800086 <Icut+0x1>
+ be4:	48 17       	cp	r20, r24
+ be6:	59 07       	cpc	r21, r25
+ be8:	b8 f4       	brcc	.+46     	; 0xc18 <main+0x2ea>
+				{
+					//we are finished - green color
+					color[0] = 128; color[1] = 0; color[2] = 0;
+ bea:	80 e8       	ldi	r24, 0x80	; 128
+ bec:	80 93 75 00 	sts	0x0075, r24	; 0x800075 <color>
+ bf0:	10 92 76 00 	sts	0x0076, r1	; 0x800076 <color+0x1>
+ bf4:	10 92 77 00 	sts	0x0077, r1	; 0x800077 <color+0x2>
+					ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+ bf8:	0a e3       	ldi	r16, 0x3A	; 58
+ bfa:	10 e0       	ldi	r17, 0x00	; 0
+ bfc:	2b e3       	ldi	r18, 0x3B	; 59
+ bfe:	30 e0       	ldi	r19, 0x00	; 0
+ c00:	40 e2       	ldi	r20, 0x20	; 32
+ c02:	63 e0       	ldi	r22, 0x03	; 3
+ c04:	70 e0       	ldi	r23, 0x00	; 0
+ c06:	85 e7       	ldi	r24, 0x75	; 117
+ c08:	90 e0       	ldi	r25, 0x00	; 0
+ c0a:	6e de       	rcall	.-804    	; 0x8e8 <_Z21ws2812_sendarray_maskPhjhS_S_>
+					uart_sendString_P(PSTR("==FINISHED==\n"));
+ c0c:	8e e0       	ldi	r24, 0x0E	; 14
+ c0e:	92 e0       	ldi	r25, 0x02	; 2
+ c10:	9c d0       	rcall	.+312    	; 0xd4a <_Z17uart_sendString_PPKc>
+					OCR0A = 0x00;
+ c12:	16 be       	out	0x36, r1	; 54
+					PWM_STOP;
+ c14:	13 be       	out	0x33, r1	; 51
+ c16:	ff cf       	rjmp	.-2      	; 0xc16 <main+0x2e8>
+					while (1);
+				}
+			
+				//we are not finished - orange color
+				color[0] = 50; color[1] = 128; color[2] = 0;
+ c18:	d0 92 75 00 	sts	0x0075, r13	; 0x800075 <color>
+ c1c:	f0 92 76 00 	sts	0x0076, r15	; 0x800076 <color+0x1>
+ c20:	10 92 77 00 	sts	0x0077, r1	; 0x800077 <color+0x2>
+				ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
+ c24:	0a e3       	ldi	r16, 0x3A	; 58
+ c26:	10 e0       	ldi	r17, 0x00	; 0
+ c28:	2b e3       	ldi	r18, 0x3B	; 59
+ c2a:	30 e0       	ldi	r19, 0x00	; 0
+ c2c:	40 e2       	ldi	r20, 0x20	; 32
+ c2e:	63 e0       	ldi	r22, 0x03	; 3
+ c30:	70 e0       	ldi	r23, 0x00	; 0
+ c32:	85 e7       	ldi	r24, 0x75	; 117
+ c34:	90 e0       	ldi	r25, 0x00	; 0
+ c36:	58 de       	rcall	.-848    	; 0x8e8 <_Z21ws2812_sendarray_maskPhjhS_S_>
+			}
+
+			//temperature check
+			if ((Tact > Tmax) | (Tact < Tmin))
+ c38:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <Tact>
+ c3c:	90 e0       	ldi	r25, 0x00	; 0
+ c3e:	20 91 7f 00 	lds	r18, 0x007F	; 0x80007f <Tmax>
+ c42:	02 2e       	mov	r0, r18
+ c44:	00 0c       	add	r0, r0
+ c46:	33 0b       	sbc	r19, r19
+ c48:	28 17       	cp	r18, r24
+ c4a:	39 07       	cpc	r19, r25
+ c4c:	4c f0       	brlt	.+18     	; 0xc60 <main+0x332>
+ c4e:	20 91 80 00 	lds	r18, 0x0080	; 0x800080 <Tmin>
+ c52:	02 2e       	mov	r0, r18
+ c54:	00 0c       	add	r0, r0
+ c56:	33 0b       	sbc	r19, r19
+ c58:	82 17       	cp	r24, r18
+ c5a:	93 07       	cpc	r25, r19
+ c5c:	0c f0       	brlt	.+2      	; 0xc60 <main+0x332>
+ c5e:	fb ce       	rjmp	.-522    	; 0xa56 <main+0x128>
+			{
+				uart_sendString_P(PSTR("ERROR\n"));
+ c60:	87 e0       	ldi	r24, 0x07	; 7
+ c62:	92 e0       	ldi	r25, 0x02	; 2
+ c64:	72 d0       	rcall	.+228    	; 0xd4a <_Z17uart_sendString_PPKc>
+				OCR0A = 0x00;
+ c66:	16 be       	out	0x36, r1	; 54
+				PWM_STOP;
+ c68:	13 be       	out	0x33, r1	; 51
+ c6a:	ff cf       	rjmp	.-2      	; 0xc6a <main+0x33c>
+
+00000c6c <__vector_6>:
+}
+
+//interrupt each 100 ms
+volatile uint8_t OVF_counter;
+ISR(TIM1_COMPA_vect)
+{
+ c6c:	1f 92       	push	r1
+ c6e:	0f 92       	push	r0
+ c70:	0f b6       	in	r0, 0x3f	; 63
+ c72:	0f 92       	push	r0
+ c74:	11 24       	eor	r1, r1
+ c76:	8f 93       	push	r24
+ c78:	9f 93       	push	r25
+	OVF_counter++;
+ c7a:	80 91 70 00 	lds	r24, 0x0070	; 0x800070 <OVF_counter>
+ c7e:	8f 5f       	subi	r24, 0xFF	; 255
+ c80:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <OVF_counter>
+	if (OVF_counter >= 10)
+ c84:	80 91 70 00 	lds	r24, 0x0070	; 0x800070 <OVF_counter>
+ c88:	8a 30       	cpi	r24, 0x0A	; 10
+ c8a:	70 f0       	brcs	.+28     	; 0xca8 <__vector_6+0x3c>
+	{
+		OVF_counter = 0;
+ c8c:	10 92 70 00 	sts	0x0070, r1	; 0x800070 <OVF_counter>
+		seconds++;
+ c90:	80 91 72 00 	lds	r24, 0x0072	; 0x800072 <seconds>
+ c94:	90 91 73 00 	lds	r25, 0x0073	; 0x800073 <seconds+0x1>
+ c98:	01 96       	adiw	r24, 0x01	; 1
+ c9a:	90 93 73 00 	sts	0x0073, r25	; 0x800073 <seconds+0x1>
+ c9e:	80 93 72 00 	sts	0x0072, r24	; 0x800072 <seconds>
+		update = true;
+ ca2:	81 e0       	ldi	r24, 0x01	; 1
+ ca4:	80 93 71 00 	sts	0x0071, r24	; 0x800071 <update>
+	}
+}
+ ca8:	9f 91       	pop	r25
+ caa:	8f 91       	pop	r24
+ cac:	0f 90       	pop	r0
+ cae:	0f be       	out	0x3f, r0	; 63
+ cb0:	0f 90       	pop	r0
+ cb2:	1f 90       	pop	r1
+ cb4:	18 95       	reti
+
+00000cb6 <_Z9uart_initv>:
+bool dataReady;
+
+void uart_init()
+{
+	//setup TX pin - PA7
+	DDRA |= (1 << DDA7);
+ cb6:	d7 9a       	sbi	0x1a, 7	; 26
+	STX_HIGH;
+ cb8:	df 9a       	sbi	0x1b, 7	; 27
+
+	//setup RX pin - PA6
+	DDRA &=~(1 << DDA6);
+ cba:	d6 98       	cbi	0x1a, 6	; 26
+	GIMSK |= (1 << PCIE0);
+ cbc:	8b b7       	in	r24, 0x3b	; 59
+ cbe:	80 61       	ori	r24, 0x10	; 16
+ cc0:	8b bf       	out	0x3b, r24	; 59
+	PCMSK0 |= (1 << PCINT6);
+ cc2:	96 9a       	sbi	0x12, 6	; 18
+ cc4:	80 e0       	ldi	r24, 0x00	; 0
+ cc6:	90 e0       	ldi	r25, 0x00	; 0
+
+	//fill input buffer with predefined values
+	for (uint8_t i = 0; i < 12; i++)
+		inputBuffer[i] = ' ';
+ cc8:	20 e2       	ldi	r18, 0x20	; 32
+ cca:	fc 01       	movw	r30, r24
+ ccc:	e1 57       	subi	r30, 0x71	; 113
+ cce:	ff 4f       	sbci	r31, 0xFF	; 255
+ cd0:	20 83       	st	Z, r18
+ cd2:	01 96       	adiw	r24, 0x01	; 1
+	DDRA &=~(1 << DDA6);
+	GIMSK |= (1 << PCIE0);
+	PCMSK0 |= (1 << PCINT6);
+
+	//fill input buffer with predefined values
+	for (uint8_t i = 0; i < 12; i++)
+ cd4:	8c 30       	cpi	r24, 0x0C	; 12
+ cd6:	91 05       	cpc	r25, r1
+ cd8:	c1 f7       	brne	.-16     	; 0xcca <_Z9uart_initv+0x14>
+		inputBuffer[i] = ' ';
+}
+ cda:	08 95       	ret
+
+00000cdc <_Z13uart_sendCharc>:
+
+void uart_sendChar(char ch)
+{
+	cli();
+ cdc:	f8 94       	cli
+	STX_LOW;
+ cde:	df 98       	cbi	0x1b, 7	; 27
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ ce0:	e3 e0       	ldi	r30, 0x03	; 3
+ ce2:	f1 e0       	ldi	r31, 0x01	; 1
+ ce4:	31 97       	sbiw	r30, 0x01	; 1
+ ce6:	f1 f7       	brne	.-4      	; 0xce4 <_Z13uart_sendCharc+0x8>
+ ce8:	00 c0       	rjmp	.+0      	; 0xcea <_Z13uart_sendCharc+0xe>
+ cea:	00 00       	nop
+	_delay_us(SUART_DELAY);
+	STX_HIGH;
+ cec:	df 9a       	sbi	0x1b, 7	; 27
+ cee:	20 e0       	ldi	r18, 0x00	; 0
+ cf0:	30 e0       	ldi	r19, 0x00	; 0
+
+	for (uint8_t i = 0; i < 8; i++)
+	{
+		if ((ch >> i) & 0x01)
+ cf2:	90 e0       	ldi	r25, 0x00	; 0
+ cf4:	ac 01       	movw	r20, r24
+ cf6:	02 2e       	mov	r0, r18
+ cf8:	02 c0       	rjmp	.+4      	; 0xcfe <_Z13uart_sendCharc+0x22>
+ cfa:	55 95       	asr	r21
+ cfc:	47 95       	ror	r20
+ cfe:	0a 94       	dec	r0
+ d00:	e2 f7       	brpl	.-8      	; 0xcfa <_Z13uart_sendCharc+0x1e>
+ d02:	40 ff       	sbrs	r20, 0
+ d04:	02 c0       	rjmp	.+4      	; 0xd0a <_Z13uart_sendCharc+0x2e>
+			STX_HIGH;
+ d06:	df 9a       	sbi	0x1b, 7	; 27
+ d08:	01 c0       	rjmp	.+2      	; 0xd0c <_Z13uart_sendCharc+0x30>
+		else
+			STX_LOW;
+ d0a:	df 98       	cbi	0x1b, 7	; 27
+ d0c:	e3 e0       	ldi	r30, 0x03	; 3
+ d0e:	f1 e0       	ldi	r31, 0x01	; 1
+ d10:	31 97       	sbiw	r30, 0x01	; 1
+ d12:	f1 f7       	brne	.-4      	; 0xd10 <_Z13uart_sendCharc+0x34>
+ d14:	00 c0       	rjmp	.+0      	; 0xd16 <_Z13uart_sendCharc+0x3a>
+ d16:	00 00       	nop
+ d18:	2f 5f       	subi	r18, 0xFF	; 255
+ d1a:	3f 4f       	sbci	r19, 0xFF	; 255
+	cli();
+	STX_LOW;
+	_delay_us(SUART_DELAY);
+	STX_HIGH;
+
+	for (uint8_t i = 0; i < 8; i++)
+ d1c:	28 30       	cpi	r18, 0x08	; 8
+ d1e:	31 05       	cpc	r19, r1
+ d20:	49 f7       	brne	.-46     	; 0xcf4 <_Z13uart_sendCharc+0x18>
+		else
+			STX_LOW;
+		_delay_us(SUART_DELAY);
+	}
+
+	STX_HIGH;
+ d22:	df 9a       	sbi	0x1b, 7	; 27
+	sei();
+ d24:	78 94       	sei
+ d26:	83 e0       	ldi	r24, 0x03	; 3
+ d28:	91 e0       	ldi	r25, 0x01	; 1
+ d2a:	01 97       	sbiw	r24, 0x01	; 1
+ d2c:	f1 f7       	brne	.-4      	; 0xd2a <_Z13uart_sendCharc+0x4e>
+ d2e:	00 c0       	rjmp	.+0      	; 0xd30 <_Z13uart_sendCharc+0x54>
+ d30:	00 00       	nop
+ d32:	08 95       	ret
+
+00000d34 <_Z15uart_sendStringPc>:
+	_delay_us(SUART_DELAY);
+}
+
+void uart_sendString(char* s)
+{
+ d34:	cf 93       	push	r28
+ d36:	df 93       	push	r29
+ d38:	ec 01       	movw	r28, r24
+	while(*s)  uart_sendChar(*s++);
+ d3a:	89 91       	ld	r24, Y+
+ d3c:	88 23       	and	r24, r24
+ d3e:	11 f0       	breq	.+4      	; 0xd44 <_Z15uart_sendStringPc+0x10>
+ d40:	cd df       	rcall	.-102    	; 0xcdc <_Z13uart_sendCharc>
+ d42:	fb cf       	rjmp	.-10     	; 0xd3a <_Z15uart_sendStringPc+0x6>
+}
+ d44:	df 91       	pop	r29
+ d46:	cf 91       	pop	r28
+ d48:	08 95       	ret
+
+00000d4a <_Z17uart_sendString_PPKc>:
+
+void uart_sendString_P(const char* s)
+{
+ d4a:	cf 93       	push	r28
+ d4c:	df 93       	push	r29
+ d4e:	ec 01       	movw	r28, r24
+	while (pgm_read_byte(s)) uart_sendChar(pgm_read_byte(s++));
+ d50:	fe 01       	movw	r30, r28
+ d52:	24 91       	lpm	r18, Z
+ d54:	22 23       	and	r18, r18
+ d56:	21 f0       	breq	.+8      	; 0xd60 <_Z17uart_sendString_PPKc+0x16>
+ d58:	21 96       	adiw	r28, 0x01	; 1
+ d5a:	84 91       	lpm	r24, Z
+ d5c:	bf df       	rcall	.-130    	; 0xcdc <_Z13uart_sendCharc>
+ d5e:	f8 cf       	rjmp	.-16     	; 0xd50 <_Z17uart_sendString_PPKc+0x6>
+}
+ d60:	df 91       	pop	r29
+ d62:	cf 91       	pop	r28
+ d64:	08 95       	ret
+
+00000d66 <_Z15uart_sendNumberjh>:
+
+uint8_t uart_sendNumber(uint16_t num, uint8_t base)
+{
+ d66:	0f 93       	push	r16
+ d68:	1f 93       	push	r17
+ d6a:	cf 93       	push	r28
+ d6c:	df 93       	push	r29
+ d6e:	00 d0       	rcall	.+0      	; 0xd70 <_Z15uart_sendNumberjh+0xa>
+ d70:	00 d0       	rcall	.+0      	; 0xd72 <_Z15uart_sendNumberjh+0xc>
+ d72:	00 d0       	rcall	.+0      	; 0xd74 <_Z15uart_sendNumberjh+0xe>
+ d74:	cd b7       	in	r28, 0x3d	; 61
+ d76:	de b7       	in	r29, 0x3e	; 62
+ d78:	8c 01       	movw	r16, r24
+extern __inline__ __ATTR_GNU_INLINE__
+char *itoa (int __val, char *__s, int __radix)
+{
+    if (!__builtin_constant_p (__radix)) {
+	extern char *__itoa (int, char *, int);
+	return __itoa (__val, __s, __radix);
+ d7a:	46 2f       	mov	r20, r22
+ d7c:	50 e0       	ldi	r21, 0x00	; 0
+ d7e:	be 01       	movw	r22, r28
+ d80:	6f 5f       	subi	r22, 0xFF	; 255
+ d82:	7f 4f       	sbci	r23, 0xFF	; 255
+ d84:	be d0       	rcall	.+380    	; 0xf02 <itoa>
+	char buf[6];
+	itoa(num, buf, base);
+	uart_sendString(buf);
+ d86:	ce 01       	movw	r24, r28
+ d88:	01 96       	adiw	r24, 0x01	; 1
+ d8a:	d4 df       	rcall	.-88     	; 0xd34 <_Z15uart_sendStringPc>
+
+	return (num < 10 ? 1 : (num	< 100 ? 2 : (num < 1000 ? 3 : (num < 10000 ? 4 : 5))));
+ d8c:	0a 30       	cpi	r16, 0x0A	; 10
+ d8e:	11 05       	cpc	r17, r1
+ d90:	60 f0       	brcs	.+24     	; 0xdaa <_Z15uart_sendNumberjh+0x44>
+ d92:	04 36       	cpi	r16, 0x64	; 100
+ d94:	11 05       	cpc	r17, r1
+ d96:	58 f0       	brcs	.+22     	; 0xdae <_Z15uart_sendNumberjh+0x48>
+ d98:	08 3e       	cpi	r16, 0xE8	; 232
+ d9a:	83 e0       	ldi	r24, 0x03	; 3
+ d9c:	18 07       	cpc	r17, r24
+ d9e:	48 f0       	brcs	.+18     	; 0xdb2 <_Z15uart_sendNumberjh+0x4c>
+ da0:	00 31       	cpi	r16, 0x10	; 16
+ da2:	17 42       	sbci	r17, 0x27	; 39
+ da4:	40 f0       	brcs	.+16     	; 0xdb6 <_Z15uart_sendNumberjh+0x50>
+ da6:	85 e0       	ldi	r24, 0x05	; 5
+ da8:	07 c0       	rjmp	.+14     	; 0xdb8 <_Z15uart_sendNumberjh+0x52>
+ daa:	81 e0       	ldi	r24, 0x01	; 1
+ dac:	05 c0       	rjmp	.+10     	; 0xdb8 <_Z15uart_sendNumberjh+0x52>
+ dae:	82 e0       	ldi	r24, 0x02	; 2
+ db0:	03 c0       	rjmp	.+6      	; 0xdb8 <_Z15uart_sendNumberjh+0x52>
+ db2:	83 e0       	ldi	r24, 0x03	; 3
+ db4:	01 c0       	rjmp	.+2      	; 0xdb8 <_Z15uart_sendNumberjh+0x52>
+ db6:	84 e0       	ldi	r24, 0x04	; 4
+}
+ db8:	26 96       	adiw	r28, 0x06	; 6
+ dba:	0f b6       	in	r0, 0x3f	; 63
+ dbc:	f8 94       	cli
+ dbe:	de bf       	out	0x3e, r29	; 62
+ dc0:	0f be       	out	0x3f, r0	; 63
+ dc2:	cd bf       	out	0x3d, r28	; 61
+ dc4:	df 91       	pop	r29
+ dc6:	cf 91       	pop	r28
+ dc8:	1f 91       	pop	r17
+ dca:	0f 91       	pop	r16
+ dcc:	08 95       	ret
+
+00000dce <_Z19uart_sendCharRepeatch>:
+
+void uart_sendCharRepeat(char ch, uint8_t repeats)
+{
+ dce:	1f 93       	push	r17
+ dd0:	cf 93       	push	r28
+ dd2:	df 93       	push	r29
+ dd4:	d8 2f       	mov	r29, r24
+ dd6:	16 2f       	mov	r17, r22
+	for (uint8_t i = 0; i < repeats; i ++)
+ dd8:	c0 e0       	ldi	r28, 0x00	; 0
+ dda:	c1 17       	cp	r28, r17
+ ddc:	21 f0       	breq	.+8      	; 0xde6 <_Z19uart_sendCharRepeatch+0x18>
+		uart_sendChar(ch);
+ dde:	8d 2f       	mov	r24, r29
+ de0:	7d df       	rcall	.-262    	; 0xcdc <_Z13uart_sendCharc>
+	return (num < 10 ? 1 : (num	< 100 ? 2 : (num < 1000 ? 3 : (num < 10000 ? 4 : 5))));
+}
+
+void uart_sendCharRepeat(char ch, uint8_t repeats)
+{
+	for (uint8_t i = 0; i < repeats; i ++)
+ de2:	cf 5f       	subi	r28, 0xFF	; 255
+ de4:	fa cf       	rjmp	.-12     	; 0xdda <_Z19uart_sendCharRepeatch+0xc>
+		uart_sendChar(ch);
+}
+ de6:	df 91       	pop	r29
+ de8:	cf 91       	pop	r28
+ dea:	1f 91       	pop	r17
+ dec:	08 95       	ret
+
+00000dee <__vector_2>:
+
+//note: putting delays in interrupts is far from ideal. However, since we are out of timers, we don't really have a choice here...
+ISR(PCINT0_vect)
+{
+ dee:	1f 92       	push	r1
+ df0:	0f 92       	push	r0
+ df2:	0f b6       	in	r0, 0x3f	; 63
+ df4:	0f 92       	push	r0
+ df6:	11 24       	eor	r1, r1
+ df8:	2f 93       	push	r18
+ dfa:	3f 93       	push	r19
+ dfc:	4f 93       	push	r20
+ dfe:	5f 93       	push	r21
+ e00:	6f 93       	push	r22
+ e02:	7f 93       	push	r23
+ e04:	8f 93       	push	r24
+ e06:	9f 93       	push	r25
+ e08:	ef 93       	push	r30
+ e0a:	ff 93       	push	r31
+	if (SRX_LOW)
+ e0c:	ce 99       	sbic	0x19, 6	; 25
+ e0e:	31 c0       	rjmp	.+98     	; 0xe72 <__vector_2+0x84>
+ e10:	85 e8       	ldi	r24, 0x85	; 133
+ e12:	91 e0       	ldi	r25, 0x01	; 1
+ e14:	01 97       	sbiw	r24, 0x01	; 1
+ e16:	f1 f7       	brne	.-4      	; 0xe14 <__vector_2+0x26>
+ e18:	00 c0       	rjmp	.+0      	; 0xe1a <__vector_2+0x2c>
+ e1a:	00 00       	nop
+ e1c:	20 e0       	ldi	r18, 0x00	; 0
+ e1e:	30 e0       	ldi	r19, 0x00	; 0
+	{
+		uint8_t data = 0x0;
+ e20:	80 e0       	ldi	r24, 0x00	; 0
+		_delay_us(SUART_DELAY + (SUART_DELAY / 2));
+
+		for (uint8_t i = 0; i < 8; i ++)
+		{
+			if (!SRX_LOW)
+			data |= (1 << i);
+ e22:	41 e0       	ldi	r20, 0x01	; 1
+ e24:	50 e0       	ldi	r21, 0x00	; 0
+
+		_delay_us(SUART_DELAY + (SUART_DELAY / 2));
+
+		for (uint8_t i = 0; i < 8; i ++)
+		{
+			if (!SRX_LOW)
+ e26:	ce 9b       	sbis	0x19, 6	; 25
+ e28:	07 c0       	rjmp	.+14     	; 0xe38 <__vector_2+0x4a>
+			data |= (1 << i);
+ e2a:	ba 01       	movw	r22, r20
+ e2c:	02 2e       	mov	r0, r18
+ e2e:	01 c0       	rjmp	.+2      	; 0xe32 <__vector_2+0x44>
+ e30:	66 0f       	add	r22, r22
+ e32:	0a 94       	dec	r0
+ e34:	ea f7       	brpl	.-6      	; 0xe30 <__vector_2+0x42>
+ e36:	86 2b       	or	r24, r22
+ e38:	e3 e0       	ldi	r30, 0x03	; 3
+ e3a:	f1 e0       	ldi	r31, 0x01	; 1
+ e3c:	31 97       	sbiw	r30, 0x01	; 1
+ e3e:	f1 f7       	brne	.-4      	; 0xe3c <__vector_2+0x4e>
+ e40:	00 c0       	rjmp	.+0      	; 0xe42 <__vector_2+0x54>
+ e42:	00 00       	nop
+ e44:	2f 5f       	subi	r18, 0xFF	; 255
+ e46:	3f 4f       	sbci	r19, 0xFF	; 255
+	{
+		uint8_t data = 0x0;
+
+		_delay_us(SUART_DELAY + (SUART_DELAY / 2));
+
+		for (uint8_t i = 0; i < 8; i ++)
+ e48:	28 30       	cpi	r18, 0x08	; 8
+ e4a:	31 05       	cpc	r19, r1
+ e4c:	61 f7       	brne	.-40     	; 0xe26 <__vector_2+0x38>
+			if (!SRX_LOW)
+			data |= (1 << i);
+			_delay_us(SUART_DELAY);
+		}
+
+		if (data != '\n')
+ e4e:	8a 30       	cpi	r24, 0x0A	; 10
+ e50:	59 f0       	breq	.+22     	; 0xe68 <__vector_2+0x7a>
+			inputBuffer[bufferPos++] = data;
+ e52:	e0 91 8e 00 	lds	r30, 0x008E	; 0x80008e <bufferPos>
+ e56:	91 e0       	ldi	r25, 0x01	; 1
+ e58:	9e 0f       	add	r25, r30
+ e5a:	90 93 8e 00 	sts	0x008E, r25	; 0x80008e <bufferPos>
+ e5e:	f0 e0       	ldi	r31, 0x00	; 0
+ e60:	e1 57       	subi	r30, 0x71	; 113
+ e62:	ff 4f       	sbci	r31, 0xFF	; 255
+ e64:	80 83       	st	Z, r24
+ e66:	05 c0       	rjmp	.+10     	; 0xe72 <__vector_2+0x84>
+		else
+		{
+			dataReady = true;
+ e68:	81 e0       	ldi	r24, 0x01	; 1
+ e6a:	80 93 8d 00 	sts	0x008D, r24	; 0x80008d <dataReady>
+			bufferPos = 0;
+ e6e:	10 92 8e 00 	sts	0x008E, r1	; 0x80008e <bufferPos>
+		}
+	}
+}
+ e72:	ff 91       	pop	r31
+ e74:	ef 91       	pop	r30
+ e76:	9f 91       	pop	r25
+ e78:	8f 91       	pop	r24
+ e7a:	7f 91       	pop	r23
+ e7c:	6f 91       	pop	r22
+ e7e:	5f 91       	pop	r21
+ e80:	4f 91       	pop	r20
+ e82:	3f 91       	pop	r19
+ e84:	2f 91       	pop	r18
+ e86:	0f 90       	pop	r0
+ e88:	0f be       	out	0x3f, r0	; 63
+ e8a:	0f 90       	pop	r0
+ e8c:	1f 90       	pop	r1
+ e8e:	18 95       	reti
+
+00000e90 <__udivmodhi4>:
+ e90:	aa 1b       	sub	r26, r26
+ e92:	bb 1b       	sub	r27, r27
+ e94:	51 e1       	ldi	r21, 0x11	; 17
+ e96:	07 c0       	rjmp	.+14     	; 0xea6 <__udivmodhi4_ep>
+
+00000e98 <__udivmodhi4_loop>:
+ e98:	aa 1f       	adc	r26, r26
+ e9a:	bb 1f       	adc	r27, r27
+ e9c:	a6 17       	cp	r26, r22
+ e9e:	b7 07       	cpc	r27, r23
+ ea0:	10 f0       	brcs	.+4      	; 0xea6 <__udivmodhi4_ep>
+ ea2:	a6 1b       	sub	r26, r22
+ ea4:	b7 0b       	sbc	r27, r23
+
+00000ea6 <__udivmodhi4_ep>:
+ ea6:	88 1f       	adc	r24, r24
+ ea8:	99 1f       	adc	r25, r25
+ eaa:	5a 95       	dec	r21
+ eac:	a9 f7       	brne	.-22     	; 0xe98 <__udivmodhi4_loop>
+ eae:	80 95       	com	r24
+ eb0:	90 95       	com	r25
+ eb2:	bc 01       	movw	r22, r24
+ eb4:	cd 01       	movw	r24, r26
+ eb6:	08 95       	ret
+
+00000eb8 <atoi>:
+ eb8:	fc 01       	movw	r30, r24
+ eba:	88 27       	eor	r24, r24
+ ebc:	99 27       	eor	r25, r25
+ ebe:	e8 94       	clt
+ ec0:	21 91       	ld	r18, Z+
+ ec2:	20 32       	cpi	r18, 0x20	; 32
+ ec4:	e9 f3       	breq	.-6      	; 0xec0 <atoi+0x8>
+ ec6:	29 30       	cpi	r18, 0x09	; 9
+ ec8:	10 f0       	brcs	.+4      	; 0xece <atoi+0x16>
+ eca:	2e 30       	cpi	r18, 0x0E	; 14
+ ecc:	c8 f3       	brcs	.-14     	; 0xec0 <atoi+0x8>
+ ece:	2b 32       	cpi	r18, 0x2B	; 43
+ ed0:	39 f0       	breq	.+14     	; 0xee0 <atoi+0x28>
+ ed2:	2d 32       	cpi	r18, 0x2D	; 45
+ ed4:	31 f4       	brne	.+12     	; 0xee2 <atoi+0x2a>
+ ed6:	68 94       	set
+ ed8:	03 c0       	rjmp	.+6      	; 0xee0 <atoi+0x28>
+ eda:	27 d0       	rcall	.+78     	; 0xf2a <__mulhi_const_10>
+ edc:	82 0f       	add	r24, r18
+ ede:	91 1d       	adc	r25, r1
+ ee0:	21 91       	ld	r18, Z+
+ ee2:	20 53       	subi	r18, 0x30	; 48
+ ee4:	2a 30       	cpi	r18, 0x0A	; 10
+ ee6:	c8 f3       	brcs	.-14     	; 0xeda <atoi+0x22>
+ ee8:	1e f4       	brtc	.+6      	; 0xef0 <atoi+0x38>
+ eea:	90 95       	com	r25
+ eec:	81 95       	neg	r24
+ eee:	9f 4f       	sbci	r25, 0xFF	; 255
+ ef0:	08 95       	ret
+
+00000ef2 <tolower>:
+ ef2:	91 11       	cpse	r25, r1
+ ef4:	08 95       	ret
+ ef6:	81 54       	subi	r24, 0x41	; 65
+ ef8:	8a 51       	subi	r24, 0x1A	; 26
+ efa:	08 f4       	brcc	.+2      	; 0xefe <tolower+0xc>
+ efc:	80 5e       	subi	r24, 0xE0	; 224
+ efe:	85 5a       	subi	r24, 0xA5	; 165
+ f00:	08 95       	ret
+
+00000f02 <itoa>:
+ f02:	45 32       	cpi	r20, 0x25	; 37
+ f04:	51 05       	cpc	r21, r1
+ f06:	18 f4       	brcc	.+6      	; 0xf0e <itoa+0xc>
+ f08:	42 30       	cpi	r20, 0x02	; 2
+ f0a:	08 f0       	brcs	.+2      	; 0xf0e <itoa+0xc>
+ f0c:	04 c0       	rjmp	.+8      	; 0xf16 <__itoa_ncheck>
+ f0e:	fb 01       	movw	r30, r22
+ f10:	10 82       	st	Z, r1
+ f12:	cb 01       	movw	r24, r22
+ f14:	08 95       	ret
+
+00000f16 <__itoa_ncheck>:
+ f16:	bb 27       	eor	r27, r27
+ f18:	4a 30       	cpi	r20, 0x0A	; 10
+ f1a:	31 f4       	brne	.+12     	; 0xf28 <__itoa_ncheck+0x12>
+ f1c:	99 23       	and	r25, r25
+ f1e:	22 f4       	brpl	.+8      	; 0xf28 <__itoa_ncheck+0x12>
+ f20:	bd e2       	ldi	r27, 0x2D	; 45
+ f22:	90 95       	com	r25
+ f24:	81 95       	neg	r24
+ f26:	9f 4f       	sbci	r25, 0xFF	; 255
+ f28:	0b c0       	rjmp	.+22     	; 0xf40 <__utoa_common>
+
+00000f2a <__mulhi_const_10>:
+ f2a:	bc 01       	movw	r22, r24
+ f2c:	88 0f       	add	r24, r24
+ f2e:	99 1f       	adc	r25, r25
+ f30:	88 0f       	add	r24, r24
+ f32:	99 1f       	adc	r25, r25
+ f34:	86 0f       	add	r24, r22
+ f36:	97 1f       	adc	r25, r23
+ f38:	88 0f       	add	r24, r24
+ f3a:	99 1f       	adc	r25, r25
+ f3c:	08 95       	ret
+
+00000f3e <__utoa_ncheck>:
+ f3e:	bb 27       	eor	r27, r27
+
+00000f40 <__utoa_common>:
+ f40:	fb 01       	movw	r30, r22
+ f42:	55 27       	eor	r21, r21
+ f44:	aa 27       	eor	r26, r26
+ f46:	88 0f       	add	r24, r24
+ f48:	99 1f       	adc	r25, r25
+ f4a:	aa 1f       	adc	r26, r26
+ f4c:	a4 17       	cp	r26, r20
+ f4e:	10 f0       	brcs	.+4      	; 0xf54 <__utoa_common+0x14>
+ f50:	a4 1b       	sub	r26, r20
+ f52:	83 95       	inc	r24
+ f54:	50 51       	subi	r21, 0x10	; 16
+ f56:	b9 f7       	brne	.-18     	; 0xf46 <__utoa_common+0x6>
+ f58:	a0 5d       	subi	r26, 0xD0	; 208
+ f5a:	aa 33       	cpi	r26, 0x3A	; 58
+ f5c:	08 f0       	brcs	.+2      	; 0xf60 <__utoa_common+0x20>
+ f5e:	a9 5d       	subi	r26, 0xD9	; 217
+ f60:	a1 93       	st	Z+, r26
+ f62:	00 97       	sbiw	r24, 0x00	; 0
+ f64:	79 f7       	brne	.-34     	; 0xf44 <__utoa_common+0x4>
+ f66:	b1 11       	cpse	r27, r1
+ f68:	b1 93       	st	Z+, r27
+ f6a:	11 92       	st	Z+, r1
+ f6c:	cb 01       	movw	r24, r22
+ f6e:	00 c0       	rjmp	.+0      	; 0xf70 <strrev>
+
+00000f70 <strrev>:
+ f70:	dc 01       	movw	r26, r24
+ f72:	fc 01       	movw	r30, r24
+ f74:	67 2f       	mov	r22, r23
+ f76:	71 91       	ld	r23, Z+
+ f78:	77 23       	and	r23, r23
+ f7a:	e1 f7       	brne	.-8      	; 0xf74 <strrev+0x4>
+ f7c:	32 97       	sbiw	r30, 0x02	; 2
+ f7e:	04 c0       	rjmp	.+8      	; 0xf88 <strrev+0x18>
+ f80:	7c 91       	ld	r23, X
+ f82:	6d 93       	st	X+, r22
+ f84:	70 83       	st	Z, r23
+ f86:	62 91       	ld	r22, -Z
+ f88:	ae 17       	cp	r26, r30
+ f8a:	bf 07       	cpc	r27, r31
+ f8c:	c8 f3       	brcs	.-14     	; 0xf80 <strrev+0x10>
+ f8e:	08 95       	ret
+
+00000f90 <eeprom_read_byte>:
+ f90:	e1 99       	sbic	0x1c, 1	; 28
+ f92:	fe cf       	rjmp	.-4      	; 0xf90 <eeprom_read_byte>
+ f94:	1f ba       	out	0x1f, r1	; 31
+ f96:	8e bb       	out	0x1e, r24	; 30
+ f98:	e0 9a       	sbi	0x1c, 0	; 28
+ f9a:	99 27       	eor	r25, r25
+ f9c:	8d b3       	in	r24, 0x1d	; 29
+ f9e:	08 95       	ret
+
+00000fa0 <eeprom_read_word>:
+ fa0:	a8 e1       	ldi	r26, 0x18	; 24
+ fa2:	b0 e0       	ldi	r27, 0x00	; 0
+ fa4:	42 e0       	ldi	r20, 0x02	; 2
+ fa6:	13 c0       	rjmp	.+38     	; 0xfce <eeprom_read_blraw>
+
+00000fa8 <eeprom_write_byte>:
+ fa8:	26 2f       	mov	r18, r22
+
+00000faa <eeprom_write_r18>:
+ faa:	e1 99       	sbic	0x1c, 1	; 28
+ fac:	fe cf       	rjmp	.-4      	; 0xfaa <eeprom_write_r18>
+ fae:	1c ba       	out	0x1c, r1	; 28
+ fb0:	1f ba       	out	0x1f, r1	; 31
+ fb2:	8e bb       	out	0x1e, r24	; 30
+ fb4:	2d bb       	out	0x1d, r18	; 29
+ fb6:	0f b6       	in	r0, 0x3f	; 63
+ fb8:	f8 94       	cli
+ fba:	e2 9a       	sbi	0x1c, 2	; 28
+ fbc:	e1 9a       	sbi	0x1c, 1	; 28
+ fbe:	0f be       	out	0x3f, r0	; 63
+ fc0:	01 96       	adiw	r24, 0x01	; 1
+ fc2:	08 95       	ret
+
+00000fc4 <eeprom_write_word>:
+ fc4:	f1 df       	rcall	.-30     	; 0xfa8 <eeprom_write_byte>
+ fc6:	27 2f       	mov	r18, r23
+ fc8:	f0 cf       	rjmp	.-32     	; 0xfaa <eeprom_write_r18>
+
+00000fca <eeprom_read_block>:
+ fca:	dc 01       	movw	r26, r24
+ fcc:	86 2f       	mov	r24, r22
+
+00000fce <eeprom_read_blraw>:
+ fce:	e8 2f       	mov	r30, r24
+ fd0:	e1 99       	sbic	0x1c, 1	; 28
+ fd2:	fe cf       	rjmp	.-4      	; 0xfd0 <eeprom_read_blraw+0x2>
+ fd4:	1f ba       	out	0x1f, r1	; 31
+ fd6:	05 c0       	rjmp	.+10     	; 0xfe2 <eeprom_read_blraw+0x14>
+ fd8:	ee bb       	out	0x1e, r30	; 30
+ fda:	e0 9a       	sbi	0x1c, 0	; 28
+ fdc:	e3 95       	inc	r30
+ fde:	0d b2       	in	r0, 0x1d	; 29
+ fe0:	0d 92       	st	X+, r0
+ fe2:	41 50       	subi	r20, 0x01	; 1
+ fe4:	c8 f7       	brcc	.-14     	; 0xfd8 <eeprom_read_blraw+0xa>
+ fe6:	08 95       	ret
+
+00000fe8 <_exit>:
+ fe8:	f8 94       	cli
+
+00000fea <__stop_program>:
+ fea:	ff cf       	rjmp	.-2      	; 0xfea <__stop_program>

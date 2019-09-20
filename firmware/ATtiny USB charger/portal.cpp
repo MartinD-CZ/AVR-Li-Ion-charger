@@ -15,17 +15,16 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-extern uint16_t Vmax, Vpre, Imax, Icut, Ipre, Vcon;
-extern int8_t Tmin, Tmax;
+extern uint16_t param[8];
 
 extern volatile bool dataReady;
 extern volatile char inputBuffer[16];
 
-const uint16_t PROGMEM defaultValues[] = {4200, 3000, 1000, 100, 200, 0, 45, 700};
-const uint16_t PROGMEM minValues[] = {500, 500, 100, 10, 10, 0, 0, 100};
-const uint16_t PROGMEM maxValues[] = {4500, 4500, 2000, 2000, 2000, 50, 125, 4000};
-const char PROGMEM paramName[] = "VmaxVpreImaxIcutIpreTminTmaxVcon";
-const char PROGMEM unit[] = "mVmVmAmAmA C CmV";
+const uint16_t PROGMEM defaultValues[] = {4200, 3000, 1000, 100, 200, 700, 0, 45};
+const uint16_t PROGMEM minValues[] = {500, 500, 100, 10, 10, 100, 0, 0};
+const uint16_t PROGMEM maxValues[] = {4500, 4500, 2000, 2000, 2000, 4000, 50, 125};
+const char PROGMEM paramName[] = "VmaxVpreImaxIcutIpreVconTminTmax";
+const char PROGMEM unit[] = "mVmVmAmAmAmVC C ";
 uint16_t actValue[8];
 
 bool readEEPROM(void)
@@ -33,27 +32,15 @@ bool readEEPROM(void)
 	if (eeprom_read_byte(0) == EEPROM_FLAG)
 	{
 		//we have a valid data
-		Vmax = eeprom_read_word((const uint16_t*)1);
-		Vpre = eeprom_read_word((const uint16_t*)3);
-		Imax = eeprom_read_word((const uint16_t*)5);
-		Icut = eeprom_read_word((const uint16_t*)7);
-		Ipre = eeprom_read_word((const uint16_t*)9);
-		Tmin = eeprom_read_byte((const uint8_t*)10);
-		Tmax = eeprom_read_byte((const uint8_t*)11);
-		Vcon = eeprom_read_word((const uint16_t*)12);
+		for (uint8_t i = 0; i < 8; i++)
+			param[i] = eeprom_read_word((const uint16_t*)(i * 2 + 1));
 
 		return true;
 	}
 	else
 	{
-		Vmax = pgm_read_word(&defaultValues[0]);
-		Vpre = pgm_read_word(&defaultValues[1]);
-		Imax = pgm_read_word(&defaultValues[2]);
-		Icut = pgm_read_word(&defaultValues[3]);
-		Ipre = pgm_read_word(&defaultValues[4]);
-		Tmin = pgm_read_word(&defaultValues[5]);
-		Tmax = pgm_read_word(&defaultValues[6]);
-		Vcon = pgm_read_word(&defaultValues[7]);
+		for (uint8_t i = 0; i < 8; i++)
+			param[i] = pgm_read_word(&defaultValues[i]);
 
 		return false;
 	}
@@ -88,43 +75,27 @@ void configPortal(void)
 					break;
 				case 0x766d6178:		//Vmax
 					index = 0;
-					Vmax = convertInt();
-					checkMinMax(&Vmax, index);
 					break;
 				case 0x76707265:		//Vpre
 					index = 1;
-					Vpre = convertInt();
-					checkMinMax(&Vpre, index);
 					break;
 				case 0x696d6178:		//Imax
 					index = 2;
-					Imax = convertInt();
-					checkMinMax(&Imax, index);
 					break;
 				case 0x69637574:		//Icut
 					index = 3;
-					Icut = convertInt();
-					checkMinMax(&Icut, index);
 					break;
 				case 0x69707265:		//Ipre
 					index = 4;
-					Ipre = convertInt();
-					checkMinMax(&Ipre, index);
-					break;
-				case 0x746d696e:		//Tmin
-					index = 5;
-					Tmin = convertInt();
-					checkMinMax((uint16_t*)&Tmin, index);
-					break;
-				case 0x746d6178:		//Tmax
-					index = 6;
-					Tmax = convertInt();
-					checkMinMax((uint16_t*)&Tmax, index);
 					break;
 				case 0x76636f6e:		//Vcon
+					index = 5;
+					break;
+				case 0x746d696e:		//Tmin
+					index = 6;
+					break;
+				case 0x746d6178:		//Tmax
 					index = 7;
-					Vcon = convertInt();
-					checkMinMax(&Vcon, index);
 					break;
 				default:
 					uart_sendString_P(PSTR("Invalid command!\n"));
@@ -132,13 +103,15 @@ void configPortal(void)
 
 			if (index >= 0)
 			{
+				param[index] = convertInt();
+				checkMinMax(&param[index], index);
+				
 				for (uint8_t j = 0; j < 4; j++)
 					uart_sendChar(pgm_read_byte(&paramName[index * 4 + j]));
 
 				uart_sendString_P(PSTR(" set to "));
 
-				getActualValues();
-				uart_sendNumber(actValue[index]);
+				uart_sendNumber(param[index]);
 
 				uart_sendChar(' ');
 				uart_sendChar(pgm_read_byte(&unit[index * 2]));
@@ -156,12 +129,11 @@ void printData(void)
 {
 	dataReady = false;
 	uart_sendString_P(PSTR("\n\n\n=== AVR Li-Ion Charger ===\n"));
-	uart_sendString_P(PSTR("rev. 1.0      embedblog.eu\n\n"));
+	uart_sendString_P(PSTR("rev. 1.0B     embedblog.eu\n\n"));
 	uart_sendString_P(PSTR("to change parameters, send: paramName=Value   for example: Vmax=4500\ndo not forget to send the NewLine (aka LineFeed) character at the end\n\n"));
 	uart_sendString_P(PSTR("paramName   unit    value   min     max     default\n"));
 	//characters:			12			6	    8	    8       8
 
-	getActualValues();
 	uint8_t numLength;
 	for (uint8_t i = 0; i < 8; i ++)
 	{
@@ -173,7 +145,7 @@ void printData(void)
 		uart_sendChar(pgm_read_byte(&unit[i * 2 + 1]));
 		uart_sendCharRepeat(' ', 6);
 
-		numLength = uart_sendNumber(actValue[i]);
+		numLength = uart_sendNumber(param[i]);
 		uart_sendCharRepeat(' ', 8 - numLength);
 
 		numLength = uart_sendNumber(pgm_read_word(&minValues[i]));
@@ -187,18 +159,6 @@ void printData(void)
 	}
 
 	uart_sendString_P(PSTR("\nto print the table again, send DATA; to save & exit, send EXIT\n"));
-}
-
-void getActualValues()
-{
-	actValue[0] = Vmax;
-	actValue[1] = Vpre;
-	actValue[2] = Imax;
-	actValue[3] = Icut;
-	actValue[4] = Ipre;
-	actValue[5] = Tmin;
-	actValue[6] = Tmax;
-	actValue[7] = Vcon;
 }
 
 uint16_t convertInt()
@@ -215,23 +175,11 @@ uint16_t convertInt()
 void saveEEPROM()
 {
 	eeprom_write_byte((uint8_t*)0, EEPROM_FLAG);
-	eeprom_busy_wait();
-	eeprom_write_word((uint16_t*)1, Vmax);
-	eeprom_busy_wait();
-	eeprom_write_word((uint16_t*)3, Vpre);
-	eeprom_busy_wait();
-	eeprom_write_word((uint16_t*)5, Imax);
-	eeprom_busy_wait();
-	eeprom_write_word((uint16_t*)7, Icut);
-	eeprom_busy_wait();
-	eeprom_write_word((uint16_t*)9, Ipre);
-	eeprom_busy_wait();
-	eeprom_write_byte((uint8_t*)10, Tmin);
-	eeprom_busy_wait();
-	eeprom_write_byte((uint8_t*)11, Tmax);
-	eeprom_busy_wait();
-	eeprom_write_word((uint16_t*)12, Vcon);
-	eeprom_busy_wait();
+	for (uint8_t i = 0; i < 8; i++)
+	{
+		eeprom_busy_wait();
+		eeprom_write_word((uint16_t*)(i * 2 + 1), param[i]);
+	}
 }
 
 void checkMinMax(uint16_t* value, uint8_t arrayIndex)

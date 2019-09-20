@@ -18,4 +18,13 @@
 
 #define SUART_DELAY		1000000/SUART_BAUD
 
+#define Vmax			0
+#define Vpre			1
+#define Imax			2
+#define Icut			3
+#define Ipre			4
+#define Vcon			5
+#define Tmin			6
+#define Tmax			7
+
 #endif /* DEFINES_H_ */

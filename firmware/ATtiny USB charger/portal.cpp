@@ -20,7 +20,7 @@ extern uint16_t param[8];
 extern volatile bool dataReady;
 extern volatile char inputBuffer[16];
 
-const uint16_t PROGMEM defaultValues[] = {4200, 3000, 1000, 100, 200, 700, 0, 45};
+const uint16_t PROGMEM defaultValues[] = {4200, 3000, 1000, 100, 200, 700, 0, 55};
 const uint16_t PROGMEM minValues[] = {500, 500, 100, 10, 10, 100, 0, 0};
 const uint16_t PROGMEM maxValues[] = {4500, 4500, 2000, 2000, 2000, 4000, 50, 125};
 const char PROGMEM paramName[] = "VmaxVpreImaxIcutIpreVconTminTmax";
@@ -129,7 +129,7 @@ void printData(void)
 {
 	dataReady = false;
 	uart_sendString_P(PSTR("\n\n\n=== AVR Li-Ion Charger ===\n"));
-	uart_sendString_P(PSTR("rev. 1.0B     embedblog.eu\n\n"));
+	uart_sendString_P(PSTR("rev. 1.0C     embedblog.eu\n\n"));
 	uart_sendString_P(PSTR("to change parameters, send: paramName=Value   for example: Vmax=4500\ndo not forget to send the NewLine (aka LineFeed) character at the end\n\n"));
 	uart_sendString_P(PSTR("paramName   unit    value   min     max     default\n"));
 	//characters:			12			6	    8	    8       8

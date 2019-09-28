@@ -35,7 +35,9 @@ void wdt_init(void) __attribute__((naked)) __attribute__((section(".init3")));
 
 int main(void)
 {
-    //init UART
+    _delay_ms(500);			//give some time to the serial terminal
+
+	//init UART
 	uart_init();
 	uart_sendString_P(PSTR("\n\n\nSTART\n"));
 
@@ -55,15 +57,13 @@ int main(void)
 		uart_sendString_P(PSTR("Nothing in EEPROM, defaults used\n"));
 
 	//check for temperature sensor
-	PORTA |= (1 << PA4);
-	if (adc_measurement(ADC_TEMP, 8) < 3200)
+	if (adc_measurement(ADC_TEMP, 8) > 400)
 	{
 		temperature_sensor = true;
 		uart_sendString_P(PSTR("Temperature sensor detected\n"));
 	}
 	else
 		uart_sendString_P(PSTR("Temperature sensor not found\n"));
-	PORTA &=~(1 << PA4);
 
 	//wait for user to connect the battery
 	uart_sendString_P(PSTR("waiting for battery connection...\n"));
@@ -121,16 +121,18 @@ int main(void)
 
 			if (temperature_sensor)
 				Tact = (((uint16_t)adc_measurement(ADC_TEMP, 8) - 400) / 20);
-			else
-				Tact = 0;
 
 			uart_sendString_P(PSTR("Vout: "));
 			uart_sendNumber(Vact);
 			uart_sendString_P(PSTR(" mV; Iout: "));
 			uart_sendNumber(Iact);
-			uart_sendString_P(PSTR(" mA; t: "));
-			uart_sendNumber(Tact);
-			uart_sendString_P(PSTR(" C\n"));
+			uart_sendString_P(PSTR(" mA"));
+			if (temperature_sensor)
+			{
+				uart_sendString_P(PSTR("; t: "));
+				uart_sendNumber(Tact);
+				uart_sendString_P(PSTR(" C"));
+			}
 			uart_sendString_P(PSTR("\n"));
 
 			//precharge-CC-CV-finished determination loop
@@ -161,11 +163,10 @@ int main(void)
 				if (Iact < param[Icut])
 				{
 					//we are finished - green color
+					PWM_STOP;
 					color[0] = 128; color[1] = 0; color[2] = 0;
 					ws2812_sendarray_mask(color, 3, (1 << PA5), (uint8_t*)&PORTA, (uint8_t*)&DDRA);
 					uart_sendString_P(PSTR("==FINISHED==\n"));
-					OCR0A = 0x00;
-					PWM_STOP;
 					while (1);
 				}
 			
@@ -177,9 +178,8 @@ int main(void)
 			//temperature check
 			if (((Tact > param[Tmax]) | (Tact < Tmin)) && temperature_sensor)
 			{
-				uart_sendString_P(PSTR("TEMPERATURE ERROR\n"));
-				OCR0A = 0x00;
 				PWM_STOP;
+				uart_sendString_P(PSTR("TEMPERATURE ERROR\n"));
 				color[0] = 0; color[2] = 0;
 				while(1)
 				{
